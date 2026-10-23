@@ -1,0 +1,1067 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#c9b8ff">
+<meta name="description" content="A cozy lavender-colored 3D chaos playground for Sienna Nicole.">
+<title>Sienna.exe 💖</title>
+<style>
+  :root{--ink:#35163f;--pink:#ff75b7;--pink2:#ffa4d4;--purple:#a88bff;--yellow:#ffe686;--mint:#a4f6de;--white:#fffaff;--glass:rgba(255,255,255,.63);--stroke:rgba(255,255,255,.8);--shadow:0 22px 70px rgba(108,42,105,.18)}
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{margin:0;min-height:100svh;overflow-x:hidden;color:var(--ink);font-family:ui-rounded,"SF Pro Rounded","Segoe UI",system-ui,-apple-system,sans-serif;background:radial-gradient(ellipse at 10% 7%,#ffe1ef 0,transparent 36%),radial-gradient(ellipse at 87% 14%,#e5ddff 0,transparent 35%),radial-gradient(ellipse at 50% 90%,#fff1c7 0,transparent 36%),linear-gradient(135deg,#fff4fb,#f5edff 55%,#fff6e7);-webkit-font-smoothing:antialiased}
+  button{font:inherit;cursor:pointer;touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+  button:focus-visible{outline:3px solid #6e39ad;outline-offset:4px}
+  .bg-blob{position:fixed;z-index:-1;pointer-events:none;border-radius:44% 56% 62% 38%;filter:blur(1px);opacity:.45;animation:blobfloat 13s ease-in-out infinite alternate}
+  .blob1{width:250px;height:250px;background:#ffb1d6;top:20%;left:-120px}.blob2{width:300px;height:300px;background:#b7a3ff;right:-140px;top:49%;animation-delay:-5s}.blob3{width:190px;height:190px;background:#ffe89a;left:42%;top:76%;animation-delay:-2s}
+  @keyframes blobfloat{to{transform:translate(35px,-24px) rotate(20deg) scale(1.1)}}
+  .sparkle-field{position:fixed;inset:0;overflow:hidden;pointer-events:none;z-index:0}
+  .twinkle{position:absolute;opacity:.6;animation:twinkle 2.8s ease-in-out infinite alternate}
+  @keyframes twinkle{to{opacity:.15;transform:scale(.65) rotate(35deg)}}
+  .enter{position:fixed;inset:0;z-index:50;display:grid;place-items:center;padding:20px;background:radial-gradient(ellipse at 50% 35%,rgba(255,244,251,.77),rgba(245,232,255,.94));transition:opacity .65s,visibility .65s}
+  .enter.gone{opacity:0;visibility:hidden;pointer-events:none}
+  .enter-card{width:min(520px,100%);text-align:center;position:relative;padding:clamp(24px,6vw,48px);border:2px solid #fff;border-radius:38px;background:rgba(255,255,255,.65);box-shadow:0 30px 100px rgba(162,89,160,.22);overflow:hidden;transform-style:preserve-3d;animation:cardpop .8s cubic-bezier(.2,1.4,.4,1) both}
+  .enter-card:before{content:"";position:absolute;width:260px;height:260px;border-radius:50%;top:-185px;left:calc(50% - 130px);background:#ff9ccc;filter:blur(35px);opacity:.7}
+  @keyframes cardpop{from{opacity:0;transform:translateY(22px) scale(.8) rotate(-3deg)}to{opacity:1;transform:translateY(0) scale(1) rotate(0)}}
+  .mascot{font-size:clamp(4.5rem,17vw,7rem);line-height:1;margin:0 auto 18px;display:inline-block;filter:drop-shadow(0 12px 12px rgba(215,91,158,.22));animation:bob 2.2s ease-in-out infinite;position:relative}
+  @keyframes bob{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-12px) rotate(6deg)}}
+  .mini-tag{display:inline-flex;align-items:center;justify-content:center;gap:7px;border:1px solid rgba(255,117,183,.28);background:#fff7fb;padding:7px 12px;border-radius:99px;font-size:.72rem;font-weight:900;letter-spacing:.12em;color:#a13976;text-transform:uppercase}
+  h1,h2,p{margin-top:0}
+  .enter h1{font-size:clamp(2.4rem,10vw,4.7rem);letter-spacing:-.075em;line-height:.93;margin:17px 0 14px;font-weight:1000;position:relative}
+  .rainbow{background:linear-gradient(100deg,#ff5ba6,#a06dff 48%,#ff994f);color:transparent;background-clip:text;-webkit-background-clip:text}
+  .little-copy{font-size:clamp(.9rem,3vw,1rem);font-weight:700;color:#8f6b91;margin:0 0 24px;line-height:1.5}
+  .btn{border:0;min-height:48px;padding:13px 20px;border-radius:17px;font-weight:950;letter-spacing:.01em;box-shadow:0 7px 0 rgba(113,50,107,.15),0 13px 28px rgba(208,88,164,.2);transition:transform .16s,box-shadow .16s,filter .16s;position:relative;isolation:isolate}
+  .btn:hover{transform:translateY(-3px) rotate(-1deg);box-shadow:0 10px 0 rgba(113,50,107,.12),0 18px 32px rgba(208,88,164,.25);filter:saturate(1.1)}
+  .btn:active{transform:translateY(3px) scale(.98);box-shadow:0 2px 0 rgba(113,50,107,.12)}
+  .btn-pink{color:#fff;background:linear-gradient(110deg,#ff62ad,#ff92c3)}.btn-purple{color:white;background:linear-gradient(110deg,#9271f6,#bd96ff)}.btn-yellow{color:#53305a;background:linear-gradient(110deg,#ffe78b,#ffc96e)}.btn-mint{color:#1b6556;background:linear-gradient(110deg,#9df5d6,#baf8ec)}.btn-soft{color:#8c3b74;background:#fff;border:2px solid #ffe0f1;box-shadow:0 5px 0 rgba(255,185,219,.55)}
+  .tiny{display:block;margin-top:17px;font-size:.72rem;color:#b094b7;font-weight:700}
+  .app{position:relative;z-index:1;width:min(1120px,100%);margin:auto;padding:0 clamp(14px,4vw,36px) 36px;opacity:0;transform:translateY(10px);transition:opacity .7s .1s,transform .7s .1s;pointer-events:none}
+  .app.ready{opacity:1;transform:none;pointer-events:auto}
+  .topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:18px 0 8px}
+  .brand{display:flex;align-items:center;gap:9px;color:#9b548e;font-weight:1000;font-size:.85rem;letter-spacing:.035em}
+  .brand-icon{display:grid;place-items:center;width:35px;height:35px;border-radius:12px;color:#fff;background:linear-gradient(135deg,#ff80b8,#ad8aff);box-shadow:0 6px 13px #efb3df}
+  .music{display:flex;align-items:center;gap:8px;border:1px solid white;background:rgba(255,255,255,.65);color:#7c477a;padding:9px 12px;border-radius:99px;font-weight:850;font-size:.78rem;box-shadow:0 6px 15px rgba(119,67,131,.08);max-width:52%}
+  .music-dot{width:8px;height:8px;flex:none;border-radius:50%;background:#f5a2ce}.music.playing .music-dot{background:#8de5bc;box-shadow:0 0 0 4px rgba(141,229,188,.22);animation:pulse 1s infinite alternate}@keyframes pulse{to{transform:scale(.72);opacity:.65}}
+  .hero{padding:clamp(34px,8vw,75px) 0 35px;text-align:center;position:relative}
+  .hero .mini-tag{margin-bottom:18px}
+  .hero h2{font-size:clamp(3.4rem,12vw,7.3rem);line-height:.82;letter-spacing:-.085em;font-weight:1000;margin:0 0 17px;transform:rotate(-2deg);text-shadow:0 8px 0 rgba(255,255,255,.45)}
+  .hero h2 .subname{display:block;font-size:clamp(1.45rem,5vw,2.6rem);letter-spacing:-.04em;color:#a379b0;margin-top:17px;transform:rotate(2deg)}
+  .hero-emoji{font-size:clamp(2.2rem,7vw,4rem);margin:16px 0 5px;display:inline-block;animation:wiggle 1.8s ease-in-out infinite}
+  @keyframes wiggle{0%,100%{transform:rotate(-8deg) scale(1)}50%{transform:rotate(8deg) scale(1.08)}}
+  .hero-actions{display:flex;justify-content:center;flex-wrap:wrap;gap:10px;margin-top:20px}
+  .section{margin:35px 0 43px}
+  .section-title{text-align:center;margin:0 auto 18px}
+  .section-title .section-icon{font-size:1.5rem;display:block;margin-bottom:5px}
+  .section-title h2{font-size:clamp(1.8rem,6vw,3rem);letter-spacing:-.06em;line-height:1;margin:0 0 8px;font-weight:1000}
+  .section-title p{margin:0;color:#a183aa;font-size:.86rem;font-weight:700}
+  .play-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+  .play-card{min-width:0;position:relative;isolation:isolate;border:2px solid rgba(255,255,255,.9);border-radius:28px;padding:clamp(16px,3vw,25px);box-shadow:var(--shadow);background:rgba(255,255,255,.64);overflow:hidden;transform-style:preserve-3d;transition:transform .2s,border-color .2s}
+  .play-card:before{content:"";position:absolute;width:145px;height:145px;z-index:-1;border-radius:50%;right:-48px;top:-70px;background:var(--wash,#ffd2e7);filter:blur(3px);opacity:.8}
+  .play-card:hover{border-color:white}
+  .card-head{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:15px}
+  .card-head h3{font-size:1.04rem;letter-spacing:-.035em;margin:0;font-weight:1000}
+  .card-badge{font-size:.65rem;letter-spacing:.08em;font-weight:1000;background:#fff;border:1px solid #f6dcec;color:#ad68a0;padding:6px 9px;border-radius:99px;white-space:nowrap}
+  .character-box{min-height:150px;display:grid;place-items:center;position:relative;border-radius:22px;background:linear-gradient(140deg,rgba(255,219,239,.72),rgba(225,215,255,.72));overflow:hidden;margin-bottom:14px}
+  .character-box:before,.character-box:after{content:"";position:absolute;width:120px;height:120px;border-radius:50%;border:1px dashed rgba(255,255,255,.9);animation:spin 16s linear infinite}
+  .character-box:after{width:95px;height:95px;animation-direction:reverse;animation-duration:11s}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .character{font-size:clamp(4rem,10vw,5.7rem);position:relative;z-index:1;filter:drop-shadow(0 12px 8px rgba(146,87,145,.17));animation:bob 2.5s ease-in-out infinite;user-select:none}
+  .character.booped{animation:boop .45s ease-in-out}
+  @keyframes boop{0%,100%{transform:scale(1) rotate(0)}25%{transform:scale(1.3) rotate(-16deg)}55%{transform:scale(.82) rotate(13deg)}80%{transform:scale(1.1) rotate(-7deg)}}
+  .full-btn{width:100%}
+  .status{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:12px;color:#a17ca7;font-size:.76rem;font-weight:900}
+  .meter{height:8px;background:#f6e1f1;border-radius:99px;overflow:hidden;margin-top:8px}
+  .meter span{display:block;height:100%;width:12%;border-radius:99px;background:linear-gradient(90deg,#ff75b7,#a88bff,#ffe07c);transition:width .35s ease}
+  .joke-bubble{min-height:43px;display:flex;align-items:center;justify-content:center;text-align:center;margin:12px 0 0;color:#9a5790;font-size:.8rem;font-weight:950}
+  .game-zone{position:relative;min-height:185px;border-radius:22px;overflow:hidden;background:linear-gradient(140deg,#edfff7,#fff1fb 65%,#f3eeff);border:1px solid white;margin-bottom:12px;touch-action:manipulation}
+  .game-zone:before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,146,198,.28) 1px,transparent 1px);background-size:16px 16px;opacity:.7;pointer-events:none}
+  .target{position:absolute;z-index:2;display:grid;place-items:center;width:44px;height:44px;border:0;border-radius:50%;background:rgba(255,255,255,.82);box-shadow:0 5px 12px rgba(177,111,169,.15);font-size:1.55rem;animation:targetpop .28s cubic-bezier(.2,1.5,.5,1)}
+  @keyframes targetpop{from{opacity:0;transform:scale(.1) rotate(-50deg)}to{opacity:1;transform:scale(1) rotate(0)}}
+  .target:active{transform:scale(.7)}
+  .game-overlay{position:absolute;inset:0;display:grid;place-items:center;text-align:center;padding:15px;color:#ab71a0;font-size:.83rem;font-weight:900;pointer-events:none;transition:opacity .2s}
+  .game-overlay.hidden{opacity:0}
+  .score-row{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:4px 0 12px;font-size:.83rem;font-weight:950;color:#9a6296}
+  .score-pill{padding:7px 10px;border-radius:99px;background:white;border:1px solid #f5dceb}
+  .run-zone{position:relative;min-height:140px;border-radius:22px;background:linear-gradient(135deg,#fff1c8,#ffe4f1);border:1px solid white;overflow:hidden;margin-bottom:12px;display:flex;align-items:center;justify-content:center;gap:10px;padding:10px}
+  .run-zone .btn{z-index:2;min-width:96px}
+  #runaway{transition:left .14s ease,top .14s ease,transform .14s ease;white-space:nowrap}
+  .run-foot{margin:0;text-align:center;color:#a784a8;font-size:.76rem;font-weight:800}
+  .chaos-card{grid-column:1/-1;background:linear-gradient(120deg,rgba(255,255,255,.78),rgba(255,238,248,.8))}
+  .chaos-row{display:flex;align-items:center;justify-content:center;gap:clamp(12px,4vw,38px);flex-wrap:wrap;padding:7px 0 4px}
+  .chaos-stat{text-align:center;min-width:80px}.chaos-stat b{display:block;font-size:clamp(1.5rem,5vw,2.5rem);letter-spacing:-.06em}.chaos-stat span{font-size:.66rem;font-weight:1000;color:#a37eaa;letter-spacing:.1em}
+  .big-chaos{width:95px;height:95px;border:5px solid white;border-radius:35px;background:linear-gradient(135deg,#ff84bb,#a68aff);display:grid;place-items:center;font-size:2.8rem;box-shadow:0 10px 0 rgba(148,90,159,.13),0 18px 30px rgba(189,110,184,.22);transform:rotate(-7deg);transition:transform .18s;flex:none}
+  .big-chaos:active{transform:rotate(8deg) scale(.9)}
+  .toast{position:fixed;z-index:90;bottom:calc(20px + env(safe-area-inset-bottom));left:50%;transform:translate(-50%,25px) scale(.95);max-width:calc(100vw - 28px);padding:12px 18px;background:#3c2048;color:white;border:2px solid rgba(255,255,255,.72);border-radius:18px;font-weight:950;text-align:center;box-shadow:0 15px 40px rgba(71,31,79,.22);opacity:0;pointer-events:none;transition:opacity .25s,transform .25s}
+  .toast.show{opacity:1;transform:translate(-50%,0) scale(1)}
+  .effects-layer{position:fixed;inset:0;z-index:75;overflow:hidden;pointer-events:none;contain:layout paint}
+  .floaty{position:absolute;z-index:1;left:var(--x);top:var(--y);pointer-events:none;font-size:var(--size);animation:fly .9s cubic-bezier(.14,.7,.3,1) forwards;filter:drop-shadow(0 4px 4px #e4afd8)}
+  @keyframes fly{0%{opacity:0;transform:translate(0,0) scale(.25) rotate(0)}15%{opacity:1}100%{opacity:0;transform:translate(var(--dx),var(--dy)) scale(1.15) rotate(var(--rot))}}
+  .shake{animation:screenwobble .38s ease-in-out}@keyframes screenwobble{0%,100%{transform:translateX(0)}20%{transform:translateX(-5px) rotate(-.5deg)}50%{transform:translateX(5px) rotate(.5deg)}80%{transform:translateX(-3px)}}
+  footer{text-align:center;padding:6px 0 28px;color:#b28eaf;font-size:.75rem;font-weight:850}footer span{display:inline-block;animation:bob 2s infinite}
+
+  /* Extra chaos toys: tiny, tactile, and responsive. */
+  .toy-stage{min-height:132px;border-radius:22px;background:linear-gradient(135deg,#fff0f8,#eee8ff 56%,#e6fff6);border:1px solid #fff;display:grid;place-items:center;position:relative;overflow:hidden;margin-bottom:13px}
+  .toy-face{font-size:clamp(3.6rem,9vw,5.2rem);line-height:1;filter:drop-shadow(0 9px 7px rgba(124,65,133,.16));user-select:none;transition:transform .2s}
+  .toy-face.bounce{animation:toyBounce .5s cubic-bezier(.2,1.6,.4,1)}
+  @keyframes toyBounce{0%,100%{transform:translateY(0) rotate(0)}35%{transform:translateY(-18px) rotate(-12deg) scale(1.15)}70%{transform:translateY(4px) rotate(9deg) scale(.92)}}
+  .toy-answer{display:flex;align-items:center;justify-content:center;text-align:center;min-height:45px;margin:9px 0 0;color:#98558f;font-size:.8rem;font-weight:950;line-height:1.35}
+  .snack-row{display:flex;gap:7px;flex-wrap:wrap;justify-content:center;margin-top:8px}
+  .snack-btn{border:1px solid #ffe1f0;background:#fff;border-radius:13px;padding:9px 11px;font-size:.82rem;font-weight:950;color:#8a4c84;flex:1 1 70px;min-height:42px;box-shadow:0 3px 0 rgba(214,148,199,.16)}
+  .snack-btn:active{transform:translateY(2px) scale(.98)}
+  .wheel-wrap{width:126px;height:126px;border-radius:50%;display:grid;place-items:center;position:relative;background:conic-gradient(#ff91c5 0 45deg,#b6a0ff 45deg 90deg,#ffe58c 90deg 135deg,#9cebd7 135deg 180deg,#ffb1d8 180deg 225deg,#c8bcff 225deg 270deg,#ffd5a2 270deg 315deg,#a8eadb 315deg);border:7px solid white;box-shadow:0 8px 25px rgba(151,95,163,.2);transition:transform 1.05s cubic-bezier(.12,.78,.18,1);will-change:transform}
+  .wheel-wrap:before{content:"";position:absolute;inset:12px;border:2px dashed rgba(255,255,255,.86);border-radius:50%}
+  .wheel-core{width:52px;height:52px;display:grid;place-items:center;border-radius:50%;background:#fff;border:4px solid rgba(255,255,255,.7);box-shadow:0 4px 12px rgba(108,42,105,.12);font-size:1.65rem;z-index:1}
+  .wheel-pointer{position:absolute;top:-8px;left:calc(50% - 10px);font-size:1.5rem;z-index:2;filter:drop-shadow(0 2px 2px rgba(100,40,90,.2))}
+  .danger-btn{width:100%;min-height:62px;border:3px solid #fff;border-radius:19px;background:linear-gradient(120deg,#ff6a97,#fa4e6c 45%,#b05dff);color:white;font-size:1rem;font-weight:1000;letter-spacing:.025em;box-shadow:0 7px 0 rgba(134,48,102,.17),0 12px 23px rgba(219,85,139,.17);transition:transform .15s,filter .15s;touch-action:manipulation}
+  .danger-btn:hover{transform:translateY(-2px) rotate(-1deg);filter:saturate(1.12)}
+  .danger-btn:active{transform:translateY(3px) scale(.985)}
+  .tiny-counter{text-align:center;margin-top:9px;color:#a583ab;font-size:.72rem;font-weight:900}
+  .system-modal{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:18px;background:rgba(54,25,67,.36);backdrop-filter:blur(7px);opacity:0;visibility:hidden;transition:opacity .2s,visibility .2s}
+  .system-modal.open{opacity:1;visibility:visible}
+  .system-window{width:min(430px,100%);border:3px solid white;border-radius:24px;overflow:hidden;background:linear-gradient(145deg,#fffaff,#f5eaff);box-shadow:0 30px 100px rgba(50,20,65,.3);transform:translateY(12px) scale(.95);transition:transform .25s cubic-bezier(.2,1.35,.4,1)}
+  .system-modal.open .system-window{transform:translateY(0) scale(1)}
+  .system-titlebar{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 15px;background:linear-gradient(90deg,#956dff,#ff7ab9);color:#fff;font-size:.8rem;font-weight:1000}
+  .system-dots{letter-spacing:3px;white-space:nowrap}
+  .system-body{padding:23px;text-align:center}
+  .system-icon{font-size:3.4rem;display:block;margin-bottom:10px;animation:wiggle 1.2s infinite}
+  .system-body h2{font-size:1.35rem;letter-spacing:-.04em;margin:0 0 9px}
+  .system-body p{font-size:.88rem;font-weight:750;color:#98769f;line-height:1.5;margin:0 0 18px}
+  .modal-close{border:0;border-radius:14px;background:#37203f;color:white;padding:12px 18px;width:100%;font-weight:1000;min-height:46px}
+  .glitchy{animation:glitchTint .8s ease-in-out}
+  @keyframes glitchTint{0%,100%{filter:none;transform:translateX(0)}20%{filter:hue-rotate(90deg);transform:translateX(-2px)}45%{filter:hue-rotate(-65deg);transform:translateX(2px)}65%{filter:contrast(1.25);transform:translateX(-1px)}}
+  .achievement{position:fixed;right:16px;top:16px;z-index:85;max-width:min(310px,calc(100vw - 32px));padding:12px 15px;border:2px solid #fff;border-radius:18px;background:linear-gradient(110deg,#fff7c9,#ffe0f1);box-shadow:0 12px 35px rgba(136,62,133,.18);font-size:.82rem;font-weight:1000;color:#6e3c79;opacity:0;transform:translateY(-15px) rotate(2deg);pointer-events:none;transition:opacity .25s,transform .25s}
+  .achievement.show{opacity:1;transform:translateY(0) rotate(0)}
+  .achievement small{display:block;color:#a16d9d;font-size:.67rem;font-weight:850;margin-top:3px}
+  .play-card.pop-card{animation:cardPop .42s ease}
+  @keyframes cardPop{0%,100%{transform:scale(1)}45%{transform:scale(1.025) rotate(.4deg)}}
+
+  @media(max-width:650px){.app{padding:0 13px 26px}.topbar{padding-top:12px}.brand{font-size:.76rem}.brand-icon{width:32px;height:32px}.music{font-size:.7rem;padding:8px 10px}.hero{padding:38px 0 24px}.hero h2{font-size:clamp(3.4rem,16vw,5.8rem)}.play-grid{grid-template-columns:1fr;gap:13px}.chaos-card{grid-column:auto}.play-card{border-radius:24px}.character-box{min-height:135px}.section{margin:27px 0 35px}.hero-actions .btn{flex:1 1 145px}.run-zone{min-height:128px}.section-title{margin-bottom:14px}}
+  @media(max-width:360px){.brand{font-size:.68rem;gap:5px}.music{gap:5px;font-size:.66rem}.enter-card{border-radius:28px;padding:25px 17px}.btn{padding:12px 14px;font-size:.88rem}.card-head h3{font-size:.95rem}.card-badge{font-size:.58rem}}
+  @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+  /* LAVENDER DREAMLAND — premium cozy glass + lightweight faux-3D */
+  :root{--ink:#33234b;--pink:#f18bc9;--pink2:#f9b9de;--purple:#9b82ed;--white:#fffaff;--glass:rgba(255,255,255,.62);--stroke:rgba(255,255,255,.86);--shadow:0 24px 65px rgba(92,72,153,.15)}
+  html{scroll-padding-top:24px}
+  html{background:#f7f0ff}
+  body{background:radial-gradient(ellipse at 50% -12%,rgba(255,255,255,.95),transparent 37%),radial-gradient(ellipse at 0% 18%,rgba(232,214,255,.92),transparent 36%),radial-gradient(ellipse at 100% 27%,rgba(248,216,247,.88),transparent 36%),radial-gradient(ellipse at 60% 94%,rgba(255,239,221,.76),transparent 33%),linear-gradient(145deg,#f6f0ff 0%,#f2eaff 42%,#fff5fb 76%,#f9f3ff 100%)}
+  body:before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.24;background-image:radial-gradient(rgba(138,108,180,.24) .7px,transparent .7px);background-size:16px 16px;mask-image:linear-gradient(to bottom,black,transparent 84%)}
+  .bg-blob{opacity:.3;filter:blur(3px);mix-blend-mode:multiply}
+  .blob1{background:#f3bfe8}.blob2{background:#bba9ff}.blob3{background:#fff0cc}
+  .sparkle-field{z-index:0;opacity:.78}
+  .twinkle{color:#a08be5;text-shadow:0 0 13px rgba(180,153,255,.75)}
+  .enter{background:radial-gradient(ellipse at 50% 33%,rgba(255,255,255,.65),rgba(234,224,255,.94)),linear-gradient(135deg,#e5d8ff,#ffe8f6)}
+  .enter-card{border:1px solid rgba(255,255,255,.96);background:linear-gradient(145deg,rgba(255,255,255,.79),rgba(250,242,255,.58));box-shadow:0 38px 95px rgba(114,88,173,.22),inset 0 1px 0 white;backdrop-filter:blur(25px);-webkit-backdrop-filter:blur(25px)}
+  .enter-card:after{content:"✧   ·   ✦   ·   ✧";position:absolute;left:0;right:0;bottom:13px;color:#a994e9;opacity:.72;letter-spacing:.5em;font-size:.68rem;pointer-events:none}
+  .enter-card:before{background:#c8b5ff;opacity:.62}
+  .mascot{filter:drop-shadow(0 17px 12px rgba(100,76,151,.22));transform:translateZ(30px)}
+  .mini-tag{background:rgba(255,255,255,.7);border-color:rgba(167,143,232,.32);color:#8266b0;box-shadow:0 5px 20px rgba(120,93,177,.06)}
+  .rainbow{background:linear-gradient(106deg,#dd72b9 0%,#9a7bea 36%,#7868cd 57%,#d28acd 82%,#f1a9c9 100%);background-size:180% auto;background-clip:text;-webkit-background-clip:text;color:transparent;animation:lavenderShimmer 9s ease-in-out infinite alternate}
+  @keyframes lavenderShimmer{to{background-position:100% center}}
+  .little-copy{color:#8d7ba9}
+  .btn{box-shadow:0 5px 0 rgba(96,72,143,.12),0 12px 25px rgba(128,100,190,.17),inset 0 1px 0 rgba(255,255,255,.35);transform:translateZ(0)}
+  .btn-pink{background:linear-gradient(125deg,#ed86c6,#d6a2ff 92%)}
+  .btn-purple{background:linear-gradient(125deg,#8772db,#b4a0fb);box-shadow:0 6px 0 rgba(91,69,147,.14),0 12px 27px rgba(133,105,207,.23),inset 0 1px 0 rgba(255,255,255,.4)}
+  .btn-yellow{background:linear-gradient(125deg,#fff0b8,#f4d5ff);color:#6b5487}
+  .btn-mint{background:linear-gradient(125deg,#dbf9ed,#d9d0ff);color:#62558c}
+  .btn-soft{background:rgba(255,255,255,.78);border:1px solid rgba(255,255,255,.96);color:#8a6db2;box-shadow:0 5px 0 rgba(178,151,222,.23)}
+  .app{isolation:isolate}
+  .topbar{position:sticky;top:10px;z-index:20;margin:10px -7px 0;padding:10px 13px;border:1px solid rgba(255,255,255,.8);border-radius:22px;background:rgba(255,252,255,.61);box-shadow:0 10px 35px rgba(100,81,155,.08),inset 0 1px 0 white;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px)}
+  .brand{color:#826caa;letter-spacing:.06em}
+  .brand-icon{background:linear-gradient(145deg,#c6b2ff,#f4b7df);box-shadow:0 7px 17px rgba(161,129,224,.34),inset 0 1px 0 rgba(255,255,255,.75)}
+  .music{border-color:rgba(255,255,255,.9);background:rgba(255,255,255,.74);color:#7863a0;box-shadow:0 5px 15px rgba(112,92,166,.09),inset 0 1px 0 white}
+  .hero{padding-top:clamp(36px,6vw,65px);isolation:isolate}
+  .hero .mini-tag{box-shadow:0 8px 23px rgba(134,105,191,.12)}
+  .hero h2{text-shadow:0 5px 0 rgba(255,255,255,.68),0 18px 34px rgba(139,111,192,.09)}
+  .hero h2 .subname{color:#9580bb;text-shadow:0 3px 0 rgba(255,255,255,.65)}
+  .hero-emoji{filter:drop-shadow(0 8px 12px rgba(119,88,170,.15))}
+  .section-title h2{text-shadow:0 3px 0 rgba(255,255,255,.6)}
+  .section-title p{color:#9381ae}
+  .play-grid{perspective:1500px;gap:18px}
+  .play-card{border:1px solid rgba(255,255,255,.95);background:linear-gradient(145deg,rgba(255,255,255,.84),rgba(249,243,255,.69));box-shadow:0 18px 42px rgba(96,75,153,.105),0 3px 9px rgba(96,75,153,.035),inset 0 1px 0 white;backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);transition:transform .2s ease,border-color .2s,box-shadow .2s;transform:perspective(1200px) rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,0deg));will-change:transform}
+  .play-card:before{right:-44px;top:-78px;width:175px;height:175px;filter:blur(7px);opacity:.57}
+  .play-card:after{content:"";position:absolute;inset:0;z-index:-1;border-radius:inherit;pointer-events:none;background:radial-gradient(260px circle at var(--glow-x,50%) var(--glow-y,0%),rgba(255,255,255,.82),transparent 70%);opacity:.62;transition:opacity .25s}
+  .play-card:hover{border-color:#fff;box-shadow:0 27px 58px rgba(104,82,165,.17),0 5px 12px rgba(104,82,165,.07),inset 0 1px 0 white}
+  .card-head h3{color:#48385f;letter-spacing:-.025em}
+  .card-badge{color:#8b76b5;background:rgba(255,255,255,.75);border-color:rgba(191,173,236,.5);box-shadow:inset 0 1px 0 white}
+  .character-box,.toy-stage{border:1px solid rgba(255,255,255,.95);background:radial-gradient(ellipse at 28% 12%,rgba(255,255,255,.98),transparent 37%),linear-gradient(145deg,rgba(237,224,255,.96),rgba(254,228,249,.78) 54%,rgba(224,241,255,.82));box-shadow:inset 0 2px 10px rgba(127,102,185,.055),0 8px 18px rgba(123,99,183,.06);perspective:700px}
+  .character{border:0;background:transparent;padding:0;border-radius:50%;appearance:none;-webkit-appearance:none;color:inherit;filter:drop-shadow(0 16px 8px rgba(92,70,143,.2));transform:translateZ(30px)}
+  .game-zone{border:1px solid rgba(255,255,255,.95);background:radial-gradient(circle at 50% 120%,rgba(200,181,255,.7),transparent 65%),linear-gradient(145deg,#ece4ff,#fbe7f7 70%,#f0eaff);box-shadow:inset 0 2px 12px rgba(108,81,168,.08)}
+  .game-overlay{color:#8975b0;text-shadow:0 2px 0 white}
+  .score-pill{background:rgba(255,255,255,.72);border-color:white;color:#7b68a3}
+  .run-zone{background:linear-gradient(145deg,rgba(240,230,255,.9),rgba(255,239,248,.88));border-color:white;box-shadow:inset 0 1px 0 white}
+  .status{color:#9280b0}
+  .meter{background:rgba(190,169,233,.25);box-shadow:inset 0 1px 2px rgba(100,70,145,.08)}
+  .meter span{background:linear-gradient(90deg,#d58ad1,#a995f1,#c8b9ff,#f0c1e8);box-shadow:0 0 13px rgba(180,143,232,.32)}
+  .joke-bubble,.toy-answer{color:#8c6eac}
+  .snack-btn{background:rgba(255,255,255,.82);border-color:white;color:#7d689f;box-shadow:0 5px 0 rgba(169,145,218,.18),inset 0 1px 0 white}
+  .wheel-wrap{box-shadow:0 12px 29px rgba(115,89,173,.23),inset 0 2px 4px rgba(255,255,255,.7);border-color:rgba(255,255,255,.96)}
+  .danger-btn{background:linear-gradient(120deg,#e69ad7,#b28df4 53%,#f18dbf);box-shadow:0 7px 0 rgba(122,81,162,.17),0 13px 25px rgba(180,105,192,.17),inset 0 1px 0 rgba(255,255,255,.45)}
+  .chaos-stat b{color:#7963a6}
+  .big-chaos{box-shadow:0 10px 0 rgba(148,119,207,.13),0 15px 30px rgba(135,108,199,.2),inset 0 1px 0 white}
+  footer{color:#9b88b7}
+  .toast{background:rgba(255,251,255,.92);border:1px solid white;color:#75609b;box-shadow:0 16px 50px rgba(91,66,143,.2);backdrop-filter:blur(18px)}
+  .system-modal{background:rgba(67,47,99,.36)}
+  .system-window{box-shadow:0 35px 100px rgba(61,42,97,.34),inset 0 1px 0 white}
+  .system-titlebar{background:linear-gradient(100deg,#9b83e9,#d58bc9)}
+  .achievement{background:linear-gradient(120deg,rgba(255,255,255,.95),rgba(239,229,255,.96));border-color:white;color:#6d5899;box-shadow:0 15px 40px rgba(99,72,154,.2);backdrop-filter:blur(15px)}
+  .achievement small{color:#917bb5}
+  .floaty{text-shadow:0 4px 12px rgba(130,100,198,.23)}
+
+  /* A compact 3D lavender planetarium built from CSS + inline SVG — no external assets. */
+  .lavender-diorama{position:relative;width:min(700px,100%);height:clamp(196px,31vw,278px);margin:15px auto 25px;overflow:hidden;isolation:isolate;border-radius:clamp(25px,5vw,38px);border:1px solid rgba(255,255,255,.94);background:radial-gradient(ellipse at 50% 120%,rgba(255,227,244,.97),transparent 55%),radial-gradient(ellipse at 68% 15%,rgba(220,210,255,.94),transparent 42%),linear-gradient(145deg,#d3c7ff 0%,#bcb8f6 39%,#ead3f4 70%,#fde5f1 100%);box-shadow:0 25px 58px rgba(113,87,171,.17),0 5px 14px rgba(113,87,171,.08),inset 0 1px 0 white,inset 0 -16px 50px rgba(255,255,255,.2);transform-style:preserve-3d;perspective:900px}
+  .lavender-diorama:before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(ellipse at 50% 20%,rgba(255,255,255,.55),transparent 40%),linear-gradient(180deg,rgba(255,255,255,.14),transparent 58%);pointer-events:none}
+  .scene-noise{position:absolute;inset:0;opacity:.2;background-image:radial-gradient(rgba(255,255,255,.9) .8px,transparent .8px);background-size:13px 13px;mask-image:linear-gradient(transparent,black 35%,transparent)}
+  .scene-star{position:absolute;z-index:2;color:#fff;font-size:clamp(12px,2.6vw,21px);text-shadow:0 0 14px #fff,0 0 25px rgba(163,139,238,.8);animation:sceneTwinkle 2.8s ease-in-out infinite alternate}
+  .star-a{left:15%;top:21%}.star-b{left:28%;top:15%;animation-delay:-1s}.star-c{right:18%;top:24%;animation-delay:-1.8s}.star-d{right:31%;top:12%;font-size:32px}.star-e{left:44%;top:29%;animation-delay:-.6s}
+  @keyframes sceneTwinkle{to{opacity:.42;transform:scale(.76) rotate(28deg)}}
+  .scene-cloud{position:absolute;z-index:1;width:120px;height:36px;border-radius:80px;background:linear-gradient(180deg,rgba(255,255,255,.82),rgba(242,223,255,.35));filter:drop-shadow(0 8px 8px rgba(132,105,184,.1));opacity:.73;transform:translateZ(3px)}
+  .scene-cloud:before,.scene-cloud:after{content:"";position:absolute;bottom:9px;border-radius:50%;background:inherit}
+  .scene-cloud:before{width:53px;height:53px;left:18px}.scene-cloud:after{width:39px;height:39px;left:56px}
+  .cloud-a{left:20%;bottom:22%;animation:cloudDrift 8s ease-in-out infinite alternate}.cloud-b{right:15%;bottom:18%;transform:scale(.67);animation:cloudDrift 10s ease-in-out infinite alternate-reverse}
+  @keyframes cloudDrift{to{translate:12px -5px}}
+  .scene-planet{position:absolute;z-index:4;left:50%;top:39%;width:clamp(77px,14vw,114px);height:clamp(77px,14vw,114px);border-radius:50%;transform:translate(calc(-50% + var(--scene-shift-x,0px)),calc(-50% + var(--scene-shift-y,0px))) translateZ(38px);display:grid;place-items:center;background:radial-gradient(circle at 29% 22%,#fff 0%,#f7efff 9%,#d9c8ff 29%,#ad94ed 59%,#8173c8 81%,#6257a7 100%);box-shadow:inset -13px -16px 25px rgba(72,57,133,.3),inset 7px 8px 15px rgba(255,255,255,.75),0 18px 24px rgba(95,74,157,.25),0 0 39px rgba(255,255,255,.44);animation:planetFloat 5s ease-in-out infinite}
+  .scene-planet:before{content:"";position:absolute;inset:9% 13% 56% 12%;border-radius:50%;background:linear-gradient(170deg,rgba(255,255,255,.72),rgba(255,255,255,0));transform:rotate(-18deg);filter:blur(2px)}
+  .scene-planet:after{content:"";position:absolute;inset:57% 11% 12%;border-radius:50%;background:linear-gradient(180deg,rgba(255,255,255,0),rgba(71,51,139,.25));filter:blur(4px)}
+  .scene-planet span{font-size:clamp(2rem,5vw,3.25rem);line-height:1;color:#fff8ff;text-shadow:0 3px 10px rgba(95,64,158,.3);transform:translateX(3px) translateY(-1px);z-index:2}
+  .scene-planet i{position:absolute;width:12px;height:12px;border-radius:50%;right:17%;top:31%;background:#fff8ff;box-shadow:0 0 14px 5px rgba(255,255,255,.45)}
+  @keyframes planetFloat{0%,100%{translate:0 0;rotate:-4deg}50%{translate:0 -9px;rotate:4deg}}
+  .scene-orbit{position:absolute;left:50%;top:40%;width:clamp(145px,29vw,225px);height:clamp(61px,12vw,94px);border:2px solid rgba(255,255,255,.72);border-left-color:rgba(255,255,255,.22);border-bottom-color:rgba(255,255,255,.36);border-radius:50%;transform:translate(-50%,-50%) rotate(-18deg) rotateX(66deg) translateZ(48px);box-shadow:0 0 13px rgba(255,255,255,.23);pointer-events:none}
+  .orbit-back{z-index:3;opacity:.68;transform:translate(-50%,-50%) rotate(22deg) rotateX(66deg) translateZ(-6px)}
+  .orbit-front{z-index:5;border-top-color:rgba(255,255,255,.33);border-right-color:rgba(255,255,255,.95);animation:orbitGlint 6s linear infinite}
+  @keyframes orbitGlint{to{filter:hue-rotate(26deg);rotate:342deg}}
+  .scene-satellite{position:absolute;z-index:6;display:grid;place-items:center;border-radius:50%;background:linear-gradient(145deg,rgba(255,255,255,.92),rgba(235,220,255,.76));border:1px solid rgba(255,255,255,.95);color:#a28add;box-shadow:0 8px 20px rgba(100,74,157,.16),inset 0 1px 0 white;transform:translate3d(var(--scene-shift-x,0px),var(--scene-shift-y,0px),45px);animation:satelliteFloat 4s ease-in-out infinite}
+  .satellite-a{width:35px;height:35px;left:calc(50% + clamp(63px,12vw,94px));top:20%;font-size:17px}.satellite-b{width:29px;height:29px;left:calc(50% - clamp(94px,17vw,125px));top:53%;font-size:17px;animation-delay:-2s}
+  @keyframes satelliteFloat{50%{margin-top:-8px;transform:translateZ(45px) rotate(12deg)}}
+  .scene-plant{position:absolute;z-index:3;bottom:16px;width:clamp(82px,16vw,128px);height:clamp(115px,22vw,170px);transform:translateZ(25px);filter:drop-shadow(0 14px 14px rgba(80,63,132,.14))}
+  .scene-plant svg{position:absolute;inset:0 0 18px;width:100%;height:calc(100% - 18px);overflow:visible}
+  .plant-left{left:clamp(5px,4vw,32px);transform:translateZ(24px) rotate(-5deg)}.plant-right{right:clamp(5px,4vw,32px);transform:translateZ(24px) rotate(5deg)}
+  .scene-pot{position:absolute;bottom:1px;left:29%;width:43%;height:34px;clip-path:polygon(4% 0,96% 0,80% 100%,20% 100%);border-radius:0 0 12px 12px;background:linear-gradient(90deg,#a18be0 0%,#e8d8ff 23%,#f7e9ff 45%,#b59ae8 75%,#8e77ce 100%);box-shadow:inset 0 3px 5px rgba(255,255,255,.8),inset 0 -6px 9px rgba(92,67,147,.17)}
+  .scene-pot:before{content:"";position:absolute;top:0;left:0;right:0;height:7px;background:linear-gradient(90deg,#9b81db,#fff4ff,#baa1f0);border-radius:5px}
+  .scene-pot i{position:absolute;top:10px;left:50%;width:24px;height:2px;transform:translateX(-50%);background:rgba(255,255,255,.55);border-radius:9px}
+  .scene-plush{position:absolute;z-index:7;right:clamp(92px,15vw,130px);bottom:15px;font-size:clamp(2.1rem,6vw,3.2rem);filter:drop-shadow(0 12px 8px rgba(91,70,138,.23));transform:translateZ(55px);animation:plushSway 4.6s ease-in-out infinite;line-height:1}
+  .scene-plush span{position:absolute;font-size:.75rem;right:-4px;top:-3px;color:#fff;filter:drop-shadow(0 2px 3px #b595df)}
+  @keyframes plushSway{0%,100%{translate:0 0;rotate:-5deg}50%{translate:0 -5px;rotate:4deg}}
+  .scene-label{position:absolute;left:50%;bottom:12px;z-index:8;transform:translateX(-50%);display:flex;align-items:center;gap:7px;white-space:nowrap;border:1px solid rgba(255,255,255,.82);border-radius:99px;padding:7px 12px;background:rgba(255,255,255,.44);backdrop-filter:blur(13px);-webkit-backdrop-filter:blur(13px);color:#7664a9;font-size:clamp(.53rem,1.4vw,.67rem);font-weight:1000;letter-spacing:.13em;box-shadow:0 4px 13px rgba(95,73,151,.06),inset 0 1px 0 white}
+  .scene-label-dot{width:6px;height:6px;flex:none;border-radius:50%;background:#a08beb;box-shadow:0 0 0 4px rgba(255,255,255,.4),0 0 12px #fff}
+  .scene-label-spark{font-size:.95rem;color:#c891d8}
+  .lavender-diorama:after{content:"";position:absolute;left:-10%;right:-10%;bottom:-57%;height:105%;z-index:2;border-radius:50%;background:radial-gradient(ellipse at 50% 0%,rgba(255,255,255,.48),rgba(255,255,255,0) 62%);pointer-events:none}
+  .play-card,.enter-card{transform-style:preserve-3d}
+  .play-card .card-head,.play-card .character-box,.play-card .toy-stage,.play-card>.btn,.play-card .joke-bubble,.play-card .status,.play-card .meter,.play-card .run-foot,.play-card .score-row,.play-card .snack-row,.play-card .toy-answer,.play-card .tiny-counter,.play-card .chaos-row{transform:translateZ(8px)}
+  @media(max-width:650px){.topbar{top:5px;margin:6px -3px 0;padding:8px 10px;border-radius:18px}.lavender-diorama{margin:12px auto 20px;height:208px;border-radius:27px}.scene-plant{bottom:12px}.scene-plush{right:clamp(72px,16vw,95px);bottom:13px}.scene-label{bottom:9px;padding:6px 9px;letter-spacing:.09em}.play-grid{gap:14px}.play-card{box-shadow:0 15px 34px rgba(96,75,153,.12),inset 0 1px 0 white}.section{margin-top:30px}}
+  @media(max-width:390px){.lavender-diorama{height:190px;margin-top:8px}.scene-plant{width:78px;height:118px;bottom:9px}.scene-plush{right:62px;font-size:2rem}.scene-pot{height:28px}.scene-label{font-size:.5rem;gap:5px}.satellite-a{left:calc(50% + 64px)}.satellite-b{left:calc(50% - 91px)}.hero-actions{gap:8px}}
+  @media(hover:none){.play-card:hover{transform:none}.btn:hover{transform:none}.lavender-diorama{box-shadow:0 18px 42px rgba(113,87,171,.16),inset 0 1px 0 white}}
+  @media(prefers-reduced-motion:reduce){.rainbow,.scene-star,.scene-cloud,.scene-planet,.scene-orbit,.scene-satellite,.scene-plush{animation:none!important}}
+
+
+
+  /* REAL, live WebGL 3D: the scene is geometry + lighting, not a decorative image. */
+  .lavender-diorama{perspective:1100px;transform-style:preserve-3d;isolation:isolate}
+  .three-canvas{position:absolute;inset:0;width:100%;height:100%;z-index:1;display:block;outline:none;cursor:grab;touch-action:pan-y;filter:drop-shadow(0 14px 18px rgba(98,73,170,.12))}
+  .three-canvas:active{cursor:grabbing}
+  .three-canvas:focus-visible{outline:3px solid rgba(255,255,255,.95);outline-offset:-7px;border-radius:inherit}
+  .lavender-diorama.webgl-ready .scene-planet,.lavender-diorama.webgl-ready .scene-orbit{opacity:0;visibility:hidden}
+  .three-stamp{position:absolute;z-index:9;top:12px;left:13px;display:flex;align-items:center;gap:7px;padding:7px 10px;border-radius:99px;background:rgba(255,255,255,.48);border:1px solid rgba(255,255,255,.82);color:#8170b4;backdrop-filter:blur(12px);font-size:.58rem;letter-spacing:.1em;font-weight:1000;box-shadow:0 7px 19px rgba(95,74,157,.08),inset 0 1px 0 #fff;pointer-events:none}
+  .three-stamp i{display:inline-block;width:6px;height:6px;background:#9ee6d0;border-radius:50%;box-shadow:0 0 0 4px rgba(158,230,208,.2),0 0 12px #fff}
+  .three-hint{position:absolute;right:13px;top:13px;z-index:9;border-radius:99px;color:#8e7cb9;font-size:.57rem;font-weight:900;letter-spacing:.04em;padding:7px 9px;background:rgba(255,255,255,.4);border:1px solid rgba(255,255,255,.72);backdrop-filter:blur(10px);pointer-events:none}
+  .hero h2{filter:drop-shadow(0 11px 0 rgba(188,163,228,.17)) drop-shadow(0 18px 18px rgba(143,111,198,.12));transform:perspective(600px) rotateX(5deg) rotateZ(-1deg);}
+  .hero h2 .subname{transform:perspective(500px) rotateX(-7deg) rotateZ(1deg);}
+  .play-card{transform-style:preserve-3d;backface-visibility:hidden}
+  .character-box{transform-style:preserve-3d;perspective:900px}
+  .character-box:before{border-style:solid;border-color:rgba(255,255,255,.8);box-shadow:0 0 17px rgba(167,145,228,.18);transform:rotateX(68deg);animation:orbitRing3D 8s linear infinite}
+  .character-box:after{border-style:solid;border-color:rgba(255,255,255,.62);transform:rotateY(67deg) rotateX(68deg);animation:orbitRing3DAlt 11s linear infinite}
+  @keyframes orbitRing3D{to{transform:rotateX(68deg) rotateZ(360deg)}}
+  @keyframes orbitRing3DAlt{to{transform:rotateY(67deg) rotateX(68deg) rotateZ(-360deg)}}
+  .character{transform:translateZ(36px) rotateY(-7deg);filter:drop-shadow(0 17px 10px rgba(92,70,143,.25))}
+  .toy-stage{perspective:700px;transform-style:preserve-3d}
+  .toy-face{transform:translateZ(22px) rotateY(-8deg);filter:drop-shadow(0 15px 9px rgba(97,73,151,.2))}
+  .turbo-mode .lavender-diorama{box-shadow:0 0 0 1px rgba(255,255,255,.96),0 0 35px rgba(174,145,255,.4),0 28px 80px rgba(125,94,196,.3),inset 0 1px 0 #fff;filter:saturate(1.22)}
+  .turbo-mode .three-canvas{filter:saturate(1.5) contrast(1.07) drop-shadow(0 0 17px rgba(181,148,255,.5))}
+  .turbo-mode .play-card{transform:perspective(1200px) rotateX(var(--tilt-x,0deg)) rotateY(var(--tilt-y,0deg)) translateZ(7px);box-shadow:0 22px 50px rgba(118,83,182,.19),0 0 0 1px rgba(255,255,255,.95),inset 0 1px 0 #fff}
+  .turbo-mode .scene-star,.turbo-mode .scene-satellite{animation-duration:1.05s!important}
+  .turbo-mode .scene-plush{filter:drop-shadow(0 15px 12px rgba(91,70,138,.32)) drop-shadow(0 0 9px rgba(207,183,255,.65))}
+  .turbo-mode .btn{filter:saturate(1.14);box-shadow:0 7px 0 rgba(96,72,143,.12),0 17px 36px rgba(150,109,208,.25),inset 0 1px 0 rgba(255,255,255,.45)}
+  @media(max-width:650px){.three-stamp{top:9px;left:9px;padding:6px 8px;font-size:.52rem}.three-hint{top:auto;right:9px;bottom:44px;padding:6px 8px;font-size:.52rem}.three-canvas{filter:drop-shadow(0 10px 12px rgba(98,73,170,.1))}.hero h2{transform:perspective(600px) rotateX(3deg) rotateZ(-1deg)}}
+  @media(max-width:390px){.three-stamp{font-size:.47rem;letter-spacing:.06em}.three-hint{font-size:.48rem}.scene-label{max-width:78%;overflow:hidden}}
+  @media(prefers-reduced-motion:reduce){.three-canvas{filter:none}.character-box:before,.character-box:after{animation:none!important}}
+
+
+
+  /* A visible 3D portal on the very first screen, before the site is entered. */
+  .enter-card:before{z-index:0}
+  .enter-card .mascot{z-index:3;transform:translateZ(44px);text-shadow:0 5px 0 rgba(177,146,226,.22)}
+  .enter-card .mini-tag,.enter-card h1,.enter-card .little-copy,.enter-card #enterButton,.enter-card .tiny{position:relative;z-index:3}
+  .intro-galaxy{position:absolute;z-index:1;top:18px;left:50%;width:164px;height:118px;transform:translateX(-50%);transform-style:preserve-3d;perspective:520px;opacity:.9;pointer-events:none}
+  .intro-orb{position:absolute;left:52px;top:22px;width:62px;height:62px;border-radius:50%;display:grid;place-items:center;color:#fff;font-size:1.4rem;background:radial-gradient(circle at 28% 22%,#fff 0 4%,#f8edff 12%,#d5c1ff 30%,#a68bea 62%,#5d4a9b 100%);box-shadow:inset -10px -11px 18px rgba(68,48,130,.36),inset 6px 7px 12px rgba(255,255,255,.85),0 15px 20px rgba(104,78,160,.25),0 0 34px rgba(193,171,255,.55);transform:translateZ(32px);animation:introOrbFloat 3.6s ease-in-out infinite}
+  .intro-orb:before{content:"";position:absolute;inset:8% 10% 60%;border-radius:50%;background:linear-gradient(180deg,rgba(255,255,255,.9),transparent);transform:rotate(-20deg);filter:blur(1px)}
+  .intro-orbit{position:absolute;left:10px;top:35px;width:144px;height:49px;border:2px solid rgba(255,255,255,.95);border-radius:50%;box-shadow:0 0 13px rgba(173,146,241,.5),inset 0 0 6px rgba(255,255,255,.35);transform-style:preserve-3d}
+  .intro-orbit-a{transform:rotateX(67deg) rotateZ(-23deg);animation:introRingSpin 6s linear infinite}
+  .intro-orbit-b{left:29px;top:22px;width:107px;height:72px;border-color:rgba(202,168,255,.8);transform:rotateY(64deg) rotateX(58deg);animation:introRingSpinB 8s linear infinite}
+  .intro-satellite{position:absolute;width:13px;height:13px;border-radius:50%;background:radial-gradient(circle at 30% 25%,#fff,#f2d4ff 48%,#b18be4);box-shadow:0 0 12px rgba(255,255,255,.9),0 6px 8px rgba(92,71,145,.18);transform:translateZ(48px)}
+  .intro-satellite-a{left:22px;top:74px;animation:introMoon 4.2s ease-in-out infinite}
+  .intro-satellite-b{right:18px;top:27px;width:9px;height:9px;background:radial-gradient(circle at 25% 25%,#fff,#ffbce1 50%,#b07ee8);animation:introMoon 3.2s ease-in-out infinite reverse}
+  @keyframes introOrbFloat{0%,100%{transform:translate3d(0,2px,32px) rotate(-7deg)}50%{transform:translate3d(0,-7px,42px) rotate(8deg)}}
+  @keyframes introRingSpin{to{transform:rotateX(67deg) rotateZ(337deg)}}
+  @keyframes introRingSpinB{to{transform:rotateY(64deg) rotateX(58deg) rotateZ(360deg)}}
+  @keyframes introMoon{50%{translate:7px -8px;scale:1.2}}
+  /* Persistent perspective on every game tile, not only when a desktop cursor hovers. */
+  .play-grid{perspective:1400px;perspective-origin:50% 25%}
+  .play-card{--tilt-x:1deg;--tilt-y:-.7deg;transform:perspective(1200px) rotateX(var(--tilt-x)) rotateY(var(--tilt-y));transform-style:preserve-3d;transition:transform .24s ease,box-shadow .24s ease,border-color .24s ease}
+  .play-card:nth-child(even){--tilt-x:-.8deg;--tilt-y:.9deg}
+  .play-card:nth-child(3n){--tilt-x:.5deg;--tilt-y:1deg}
+  .character{animation:characterFloat3D 2.9s ease-in-out infinite;transform-style:preserve-3d;text-shadow:0 2px 0 rgba(255,255,255,.3)}
+  .character.booped{animation:boop .45s ease-in-out}
+  @keyframes characterFloat3D{0%,100%{transform:translate3d(0,0,24px) rotateX(7deg) rotateY(-9deg)}50%{transform:translate3d(0,-9px,43px) rotateX(-4deg) rotateY(9deg)}}
+  .toy-stage:before{content:"";position:absolute;width:94px;height:18px;left:50%;bottom:15px;transform:translateX(-50%) translateZ(0);border-radius:50%;background:radial-gradient(ellipse,rgba(111,84,171,.18),transparent 70%);filter:blur(4px)}
+  .toy-face{animation:toyFloat3D 3.4s ease-in-out infinite;transform-style:preserve-3d}
+  .toy-face.bounce{animation:toyBounce .5s cubic-bezier(.2,1.6,.4,1)}
+  @keyframes toyFloat3D{0%,100%{transform:translate3d(0,0,20px) rotateX(4deg) rotateY(-8deg)}50%{transform:translate3d(0,-7px,37px) rotateX(-4deg) rotateY(8deg)}}
+  .card-cube{position:absolute;z-index:0;right:18px;top:66px;width:27px;height:27px;transform-style:preserve-3d;pointer-events:none;opacity:.68;animation:cardCubeSpin 8.5s linear infinite;filter:drop-shadow(0 8px 9px rgba(126,96,189,.25))}
+  .card-cube .cube-face{position:absolute;inset:0;display:grid;place-items:center;color:#fff;font-size:11px;font-weight:1000;border:1px solid rgba(255,255,255,.94);background:linear-gradient(145deg,rgba(255,255,255,.82),rgba(187,164,245,.46));box-shadow:inset 0 1px 0 #fff;backdrop-filter:blur(3px)}
+  .card-cube .cube-front{transform:translateZ(13.5px)}.card-cube .cube-back{transform:rotateY(180deg) translateZ(13.5px)}.card-cube .cube-right{transform:rotateY(90deg) translateZ(13.5px)}.card-cube .cube-left{transform:rotateY(-90deg) translateZ(13.5px)}.card-cube .cube-top{transform:rotateX(90deg) translateZ(13.5px)}.card-cube .cube-bottom{transform:rotateX(-90deg) translateZ(13.5px)}
+  @keyframes cardCubeSpin{0%{transform:rotateX(-23deg) rotateY(0deg) rotateZ(0deg) translateZ(4px)}50%{transform:rotateX(157deg) rotateY(180deg) rotateZ(90deg) translateZ(14px)}100%{transform:rotateX(337deg) rotateY(360deg) rotateZ(180deg) translateZ(4px)}}
+  .turbo-mode .card-cube{opacity:.98;animation-duration:2.6s;filter:drop-shadow(0 0 10px rgba(190,159,255,.6))}
+  .turbo-mode .character{filter:drop-shadow(0 18px 12px rgba(92,70,143,.34)) drop-shadow(0 0 10px rgba(191,166,255,.38))}
+  @media(max-width:650px){.intro-galaxy{top:10px;transform:translateX(-50%) scale(.9)}.play-card{--tilt-x:.4deg;--tilt-y:-.3deg}.play-card:nth-child(even){--tilt-x:-.35deg;--tilt-y:.3deg}.card-cube{right:14px;top:60px;width:23px;height:23px}.card-cube .cube-front{transform:translateZ(11.5px)}.card-cube .cube-back{transform:rotateY(180deg) translateZ(11.5px)}.card-cube .cube-right{transform:rotateY(90deg) translateZ(11.5px)}.card-cube .cube-left{transform:rotateY(-90deg) translateZ(11.5px)}.card-cube .cube-top{transform:rotateX(90deg) translateZ(11.5px)}.card-cube .cube-bottom{transform:rotateX(-90deg) translateZ(11.5px)}}
+  @media(prefers-reduced-motion:reduce){.intro-orb,.intro-orbit,.intro-satellite,.card-cube{animation:none!important}.character,.toy-face{animation:none!important;transform:translateZ(16px)}}
+
+
+
+  /* Final depth pass: center the entry splash, increase the visible card perspective, brighten glass cubes. */
+  .enter-card .mascot{display:block;width:max-content;max-width:100%;margin:0 auto 18px;text-align:center}
+  .intro-galaxy{top:21px;left:58%;transform:translateX(-40%)}
+  .play-card{perspective:1050px;--tilt-x:2deg;--tilt-y:-1.5deg;box-shadow:0 25px 58px rgba(103,77,160,.15),0 6px 14px rgba(110,82,169,.055),inset 0 1px 0 white}
+  .play-card:nth-child(even){--tilt-x:-1.7deg;--tilt-y:1.5deg}
+  .play-card:nth-child(3n){--tilt-x:1.2deg;--tilt-y:1.6deg}
+  .card-cube{width:31px;height:31px;opacity:.9;perspective:650px;transform-style:preserve-3d}
+  .card-cube .cube-face{background:linear-gradient(145deg,rgba(255,255,255,.94),rgba(193,166,255,.67));box-shadow:inset 0 1px 0 #fff,0 0 10px rgba(196,172,255,.14)}
+  .card-cube .cube-front{transform:translateZ(15.5px)}.card-cube .cube-back{transform:rotateY(180deg) translateZ(15.5px)}.card-cube .cube-right{transform:rotateY(90deg) translateZ(15.5px)}.card-cube .cube-left{transform:rotateY(-90deg) translateZ(15.5px)}.card-cube .cube-top{transform:rotateX(90deg) translateZ(15.5px)}.card-cube .cube-bottom{transform:rotateX(-90deg) translateZ(15.5px)}
+  @media(max-width:650px){.intro-galaxy{top:14px;left:58%;transform:translateX(-40%) scale(.86)}.play-card{--tilt-x:.8deg;--tilt-y:-.65deg}.play-card:nth-child(even){--tilt-x:-.7deg;--tilt-y:.6deg}.card-cube{width:25px;height:25px}.card-cube .cube-front{transform:translateZ(12.5px)}.card-cube .cube-back{transform:rotateY(180deg) translateZ(12.5px)}.card-cube .cube-right{transform:rotateY(90deg) translateZ(12.5px)}.card-cube .cube-left{transform:rotateY(-90deg) translateZ(12.5px)}.card-cube .cube-top{transform:rotateX(90deg) translateZ(12.5px)}.card-cube .cube-bottom{transform:rotateX(-90deg) translateZ(12.5px)}}
+  @media(max-height:700px){.enter-card{padding:22px}.enter-card .mascot{font-size:4rem;margin-bottom:10px}.intro-galaxy{top:7px}.enter h1{font-size:clamp(2.8rem,9vw,3.7rem);margin:12px 0}.little-copy{margin-bottom:16px}}
+
+
+
+  /* Cube faces are intentionally differentiated so they read as 3D at a glance. */
+  .card-cube .cube-front{background:linear-gradient(145deg,rgba(255,255,255,.98),rgba(198,171,255,.83));color:#9b80d7}
+  .card-cube .cube-back{background:linear-gradient(145deg,rgba(255,238,249,.96),rgba(221,180,255,.78));color:#b77ccb}
+  .card-cube .cube-right{background:linear-gradient(145deg,rgba(220,246,255,.94),rgba(151,173,244,.82));color:#fff}
+  .card-cube .cube-left{background:linear-gradient(145deg,rgba(255,231,246,.96),rgba(245,153,211,.78));color:#fff}
+  .card-cube .cube-top{background:linear-gradient(145deg,rgba(255,255,255,.98),rgba(187,248,225,.87));color:#70bfa9}
+  .card-cube .cube-bottom{background:linear-gradient(145deg,rgba(255,243,208,.96),rgba(209,173,255,.8));color:#fff}
+  @keyframes cardCubeSpin{0%{transform:rotateX(-26deg) rotateY(34deg) rotateZ(10deg) translateZ(7px)}50%{transform:rotateX(154deg) rotateY(214deg) rotateZ(100deg) translateZ(18px)}100%{transform:rotateX(334deg) rotateY(394deg) rotateZ(190deg) translateZ(7px)}}
+
+
+  /* CHAOS EXPANSION PACK — responsive, tactile, and still featherweight. */
+  .play-grid{grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch}
+  .play-card{min-width:0;overflow:hidden;word-break:normal;overflow-wrap:anywhere}
+  .play-card .card-head{align-items:flex-start}
+  .play-card .card-head h3{min-width:0}
+  .play-card button{max-width:100%;white-space:normal}
+  .sidequests{margin-top:clamp(28px,5vw,56px)}
+  .quest-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;align-items:stretch}
+  .quest-card{--questwash:#eee3ff;position:relative;display:flex;flex-direction:column;min-width:0;isolation:isolate;overflow:hidden;padding:clamp(15px,2vw,22px);border-radius:25px;border:2px solid rgba(255,255,255,.9);background:linear-gradient(145deg,rgba(255,255,255,.79),rgba(249,240,255,.72));box-shadow:0 17px 42px rgba(104,71,154,.13),inset 0 1px 0 #fff;transform-style:preserve-3d;transition:transform .22s,border-color .22s,box-shadow .22s}
+  .quest-card:before{content:"";position:absolute;z-index:-1;right:-42px;top:-47px;width:130px;height:130px;border-radius:50%;background:var(--questwash);filter:blur(3px);opacity:.86}
+  .quest-card:after{content:"✧";position:absolute;right:14px;bottom:10px;color:rgba(160,125,205,.38);font-size:1.2rem;pointer-events:none}
+  .quest-card:hover{transform:perspective(850px) rotateX(2deg) rotateY(-1deg) translateY(-3px);box-shadow:0 23px 49px rgba(104,71,154,.18),inset 0 1px 0 #fff;border-color:#fff}
+  .quest-head{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:12px}
+  .quest-head h3{margin:0;font-size:clamp(.82rem,1.1vw,.96rem);line-height:1.2;letter-spacing:-.035em;font-weight:1000}
+  .quest-badge{flex:none;border-radius:99px;padding:5px 7px;background:#fff;border:1px solid #eee0ff;color:#9a6ab3;font-size:.56rem;font-weight:1000;letter-spacing:.055em;white-space:nowrap}
+  .quest-stage{min-height:105px;display:grid;place-items:center;position:relative;isolation:isolate;overflow:hidden;border-radius:20px;border:1px solid rgba(255,255,255,.95);background:radial-gradient(circle at 50% 22%,#fff 0,transparent 36%),linear-gradient(140deg,#fff0f9,#e9e1ff 58%,#e8fff8);margin-bottom:12px;transform-style:preserve-3d}
+  .quest-stage:before,.quest-stage:after{content:"";position:absolute;width:74px;height:74px;border-radius:50%;border:1px solid rgba(255,255,255,.82);transform:rotateX(68deg) rotateZ(25deg);box-shadow:0 0 23px rgba(171,137,241,.15);pointer-events:none}
+  .quest-stage:after{width:104px;height:45px;transform:rotateX(68deg) rotateZ(-28deg);border-style:dashed}
+  .quest-hero{position:relative;z-index:1;font-size:clamp(2.5rem,4.4vw,3.6rem);filter:drop-shadow(0 10px 9px rgba(105,79,153,.2));transform:translateZ(22px);animation:questBob 2.5s ease-in-out infinite}
+  @keyframes questBob{0%,100%{transform:translateY(0) translateZ(22px) rotate(-4deg)}50%{transform:translateY(-7px) translateZ(22px) rotate(5deg)}}
+  .quest-result{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;text-align:center;min-height:58px;margin:0 0 11px;color:#87598e;font-size:.78rem;font-weight:900;line-height:1.4;overflow-wrap:anywhere}
+  .quest-buttons{display:grid;grid-template-columns:1fr;gap:8px;margin-top:auto}
+  .quest-buttons.dual{grid-template-columns:1fr 1fr}
+  .quest-buttons .btn{min-height:44px;padding:11px 10px;font-size:.77rem;border-radius:14px;box-shadow:0 4px 0 rgba(113,50,107,.1),0 8px 16px rgba(208,88,164,.12)}
+  .quest-buttons .btn:disabled{opacity:.42;filter:grayscale(.2);cursor:not-allowed;transform:none}
+  .quest-status{display:flex;justify-content:space-between;gap:8px;align-items:center;color:#9a7ca5;font-weight:950;font-size:.67rem;margin:1px 0 2px;letter-spacing:.03em}
+  .quest-xp{color:#7f5cd1;font-variant-numeric:tabular-nums}
+  .monster-stack{font-size:clamp(1.8rem,3.2vw,2.55rem);display:flex;align-items:center;justify-content:center;gap:0;filter:drop-shadow(0 9px 7px rgba(114,85,153,.2));position:relative;z-index:1;transform:translateZ(24px)}
+  .monster-stack span{display:inline-block;animation:monsterWiggle 1.2s ease-in-out infinite alternate}
+  .monster-stack span:nth-child(2){animation-delay:-.4s;font-size:1.08em}.monster-stack span:nth-child(3){animation-delay:-.8s;font-size:.88em}
+  @keyframes monsterWiggle{to{transform:translateY(-7px) rotate(8deg)}}
+  .quest-stage.is-changing .quest-hero,.quest-stage.is-changing .monster-stack{animation:questBurst .36s cubic-bezier(.2,1.5,.5,1)}
+  @keyframes questBurst{0%{transform:scale(.35) rotate(-18deg);filter:blur(3px)}100%{transform:scale(1) rotate(0);filter:none}}
+  .npc-bubble{position:relative;z-index:1;padding:12px 11px;border-radius:16px;border:1px solid #fff;background:rgba(255,255,255,.73);color:#85568c;font-size:.8rem;font-weight:900;line-height:1.4;text-align:center;min-height:82px;display:grid;place-items:center;box-shadow:0 7px 18px rgba(120,80,146,.08);transform:translateZ(14px)}
+  .npc-label{font-size:.66rem;color:#a17daf;letter-spacing:.09em;font-weight:1000;text-transform:uppercase;text-align:center;margin:9px 0 11px}
+  .goose-stage{background:radial-gradient(circle at 50% 28%,#fff 0,#fff8fd 19%,transparent 48%),linear-gradient(145deg,#f7eaff,#e3e0ff 55%,#e3fff4)}
+  .goose-portal{position:absolute;width:86px;height:86px;border:3px solid rgba(255,255,255,.92);border-radius:50%;background:linear-gradient(135deg,rgba(255,255,255,.8),rgba(200,177,255,.35));box-shadow:0 0 0 9px rgba(190,161,255,.12),0 0 30px rgba(168,130,255,.42);transform:translateZ(5px);animation:portalPulse 2.1s ease-in-out infinite}
+  @keyframes portalPulse{50%{transform:translateZ(5px) scale(1.12);box-shadow:0 0 0 15px rgba(190,161,255,.06),0 0 44px rgba(168,130,255,.57)}}
+  .goose-mascot{position:relative;z-index:2;font-size:3.1rem;filter:drop-shadow(0 10px 7px rgba(101,76,147,.18));transform:translateZ(28px);animation:gooseBob 1.6s ease-in-out infinite}
+  @keyframes gooseBob{0%,100%{transform:translateY(1px) translateZ(28px) rotate(-5deg)}50%{transform:translateY(-8px) translateZ(28px) rotate(5deg)}}
+  .goose-layer{position:fixed;inset:0;z-index:88;overflow:hidden;pointer-events:none;contain:layout paint}
+  .goose-invader{position:absolute;z-index:1;left:var(--goose-left);top:var(--goose-top);pointer-events:none;font-size:clamp(24px,5vw,52px);filter:drop-shadow(0 8px 7px rgba(98,73,145,.22));animation:gooseFly 1.7s cubic-bezier(.15,.72,.22,1) forwards}
+  @keyframes gooseFly{0%{opacity:0;transform:translate3d(0,25px,0) rotate(-25deg) scale(.3)}12%{opacity:1}100%{opacity:0;transform:translate3d(var(--goose-dx),var(--goose-dy),0) rotate(var(--goose-rot)) scale(1.25)}}
+  .sidequest-footnote{font-size:.68rem;color:#ae91b3;font-weight:800;text-align:center;margin:12px 0 0}
+  .sidequests .section-title p{max-width:44ch;margin:0 auto}
+  .app{padding-bottom:calc(36px + env(safe-area-inset-bottom))}
+  .topbar{gap:10px}
+  .music{min-width:0;max-width:55%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  @media(min-width:1050px){.app{width:min(1240px,100%)}.play-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.chaos-card{grid-column:1/-1}.quest-grid{gap:16px}.hero{padding-top:clamp(44px,6vw,76px)}}
+  @media(min-width:651px) and (max-width:1049px){.play-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.quest-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.quest-card{padding:19px}.quest-stage{min-height:118px}}
+  @media(max-width:650px){.app{padding-left:max(12px,env(safe-area-inset-left));padding-right:max(12px,env(safe-area-inset-right));padding-bottom:calc(25px + env(safe-area-inset-bottom))}.play-grid{grid-template-columns:minmax(0,1fr)}.quest-grid{grid-template-columns:minmax(0,1fr);gap:12px}.quest-card{border-radius:22px;padding:16px}.quest-stage{min-height:116px}.quest-result{min-height:42px;font-size:.82rem}.quest-buttons.dual{grid-template-columns:1fr 1fr}.quest-buttons .btn{font-size:.81rem}.hero-actions .btn{min-height:46px}.section-title p{padding:0 8px;line-height:1.45}.card-head{flex-wrap:wrap}.card-badge{white-space:normal;text-align:center;max-width:48%}.sidequests{margin-top:28px}.goose-invader{font-size:30px}}
+  @media(max-width:390px){.quest-buttons.dual{grid-template-columns:1fr}.quest-head{gap:6px}.quest-head h3{font-size:.83rem}.quest-badge{font-size:.53rem}.quest-stage{min-height:100px}.music{max-width:47%;padding:8px}.brand{max-width:57%;line-height:1.15}.hero-actions{display:grid;grid-template-columns:1fr 1fr}.hero-actions #turboMode{grid-column:1/-1}}
+  @media(hover:none){.quest-card:hover{transform:none}.quest-card:active{transform:scale(.99)}.play-card:hover{transform:none}}
+  @media(prefers-reduced-motion:reduce){.quest-hero,.monster-stack span,.goose-portal,.goose-mascot,.goose-invader{animation:none!important}.quest-card:hover{transform:none}}
+
+
+  /* Entry mini-game: a five-tap button chase and a tiny boop side quest. */
+  .enter{overflow-y:auto;overscroll-behavior:contain}
+  .enter-card .mascot{border:0;background:transparent;padding:0;color:inherit;cursor:pointer;touch-action:manipulation}
+  .enter-card .mascot:hover{filter:drop-shadow(0 14px 15px rgba(215,91,158,.3));}
+  .enter-card .mascot:active{transform:translateZ(44px) scale(.9) rotate(-8deg)}
+  .enter-card .mascot:focus-visible{outline:3px solid #9a76e8;outline-offset:5px;border-radius:18px}
+  .entry-boop-note{position:relative;z-index:3;margin:-10px auto 9px;color:#a185b3;font-size:.68rem;line-height:1.3;font-weight:850;min-height:16px}
+  .entry-boop-note span{display:inline-block;margin-left:4px;padding:2px 6px;border-radius:99px;background:#f2e8ff;color:#8965c0;font-weight:1000}
+  .entry-progress-panel{position:relative;z-index:3;width:min(350px,100%);margin:10px auto 0;text-align:left}
+  .entry-progress-meta{display:flex;justify-content:space-between;gap:8px;align-items:center;color:#a185b3;font-size:.59rem;font-weight:1000;letter-spacing:.08em}
+  .entry-progress-meta span:first-child{color:#a14e91}
+  .entry-progress-track{height:9px;padding:2px;margin-top:7px;border:1px solid rgba(255,255,255,.95);border-radius:99px;background:rgba(216,197,244,.36);box-shadow:inset 0 2px 4px rgba(129,96,162,.1)}
+  .entry-progress-track span{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,#ff77b8,#bf8cf4,#a1dcca);box-shadow:0 0 10px rgba(194,133,229,.42);transition:width .25s ease}
+  .enter-card .entry-tease{position:relative;z-index:3;display:grid;place-items:center;min-height:40px;margin:8px auto 0;width:min(360px,100%);font-size:clamp(.77rem,2.8vw,.88rem);line-height:1.38;color:#90659b;font-weight:950}
+  .entry-button-stage{position:relative;z-index:3;width:100%;max-width:390px;min-height:124px;margin:0 auto;isolation:isolate}
+  .enter-card .entry-button-stage #enterButton{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:max-content;min-width:min(164px,100%);max-width:100%;min-height:48px;padding:13px 15px;white-space:normal;line-height:1.1;overflow-wrap:anywhere;margin:0;z-index:5;transition:left .27s cubic-bezier(.2,1.35,.4,1),top .27s cubic-bezier(.2,1.35,.4,1),transform .18s,box-shadow .18s,filter .18s;transform-origin:center;will-change:left,top}
+  .enter-card .entry-button-stage #enterButton:hover{transform:translate(-50%,-50%) scale(1.045) rotate(-1deg)}
+  .enter-card .entry-button-stage #enterButton:active{transform:translate(-50%,-50%) scale(.96)}
+  .enter-card .entry-button-stage #enterButton.entry-dodge-pop{animation:entryDodgePop .34s cubic-bezier(.18,1.45,.38,1) both}
+  .enter-card .entry-button-stage #enterButton.entry-final-dodge{filter:saturate(1.2);box-shadow:0 0 0 5px rgba(255,255,255,.5),0 8px 0 rgba(113,50,107,.12),0 18px 38px rgba(208,88,164,.32)}
+  @keyframes entryDodgePop{0%{scale:.86}65%{scale:1.07}100%{scale:1}}
+  .enter-card .tiny{position:relative;z-index:3;margin-top:3px;line-height:1.35}
+  @media(max-width:650px){.entry-button-stage{min-height:116px}.entry-progress-meta{font-size:.54rem}.enter-card .entry-tease{padding:0 3px}.entry-boop-note{font-size:.64rem}}
+  @media(max-height:700px){.enter{padding:12px}.enter-card{padding:20px}.enter-card .mascot{font-size:3.7rem!important;margin-bottom:8px!important}.entry-boop-note{margin-top:-5px;margin-bottom:5px}.enter-card .little-copy{margin-bottom:8px}.entry-progress-panel{margin-top:6px}.enter-card .entry-tease{min-height:34px;margin-top:5px}.entry-button-stage{min-height:96px}.enter-card .tiny{margin-top:0}.intro-galaxy{top:5px}}
+  @media(prefers-reduced-motion:reduce){.enter-card .entry-button-stage #enterButton{transition:none;animation:none!important}.entry-progress-track span{transition:none}}
+</style>
+</head>
+<body>
+<div class="bg-blob blob1" aria-hidden="true"></div><div class="bg-blob blob2" aria-hidden="true"></div><div class="bg-blob blob3" aria-hidden="true"></div>
+<div class="sparkle-field" id="sparkleField" aria-hidden="true"></div>
+<audio id="song" src="1.mp3" preload="auto" loop></audio>
+
+<div class="enter" id="enterScreen" role="dialog" aria-modal="true" aria-labelledby="welcomeTitle">
+  <div class="enter-card" id="entryCard">
+    <button class="mascot" id="entryMascot" type="button" aria-label="Boop the baby chick">🐣</button>
+    <div class="entry-boop-note" id="entryBoopNote" aria-live="polite">boop the chick for a tiny bonus 🍼 <span id="entryBoopCount">0/3</span></div>
+    <div class="intro-galaxy" aria-hidden="true"><span class="intro-orbit intro-orbit-a"></span><span class="intro-orbit intro-orbit-b"></span><span class="intro-orb">✦</span><span class="intro-satellite intro-satellite-a"></span><span class="intro-satellite intro-satellite-b"></span></div>
+    <div class="mini-tag">⚠️ extremely unserious website</div>
+    <h1 id="welcomeTitle"><span class="rainbow">SIENNA</span><br>.EXE</h1>
+    <p class="little-copy">A tiny baby security check is required. 🍓</p>
+    <div class="entry-progress-panel">
+      <div class="entry-progress-meta"><span id="entryCount" aria-live="polite">0 / 5 CLICKS</span><span>VERY IMPORTANT TEST</span></div>
+      <div class="entry-progress-track" aria-hidden="true"><span id="entryProgressBar"></span></div>
+    </div>
+    <p class="entry-tease" id="entryTease" role="status" aria-live="polite">Click the button 5 times to enter, tiny potato. Yes, FIVE. 🥔🍼</p>
+    <div class="entry-button-stage" id="entryButtonStage">
+      <button class="btn btn-pink" id="enterButton" type="button">UNLEASH THE GOOF 🚀</button>
+    </div>
+    <span class="tiny">🔊 tiny thumbs, big mission · music starts when you get in</span>
+  </div>
+</div>
+
+<main class="app" id="app">
+  <nav class="topbar" aria-label="Top bar">
+    <div class="brand"><span class="brand-icon">✦</span><span>SIENNA'S CHAOS CLUB</span></div>
+    <button class="music" id="musicToggle" type="button" aria-label="Play or pause music" aria-pressed="false"><span class="music-dot"></span><span id="musicText">♫ vibes: off</span></button>
+  </nav>
+
+  <header class="hero" id="home">
+    <div class="mini-tag">🚨 CUTIE ALERT · LEVEL 100</div>
+    <h2><span class="rainbow">SIENNA</span><span class="subname">nicole ✨</span></h2>
+    <div class="hero-emoji" aria-hidden="true">😼💖🪩</div>
+    <div class="lavender-diorama" id="lavenderScene" role="img" aria-label="Interactive 3D lavender planetarium. Drag or swipe to rotate the planet.">
+      <canvas class="three-canvas" id="galaxyCanvas" aria-label="Live 3D lavender planet with rotating rings" tabindex="0"></canvas>
+      <div class="three-stamp"><i></i> <span id="renderModeLabel">LIVE 3D · WEBGL</span></div>
+      <div class="three-hint">DRAG / SWIPE TO ROTATE ↗</div>
+      <div class="scene-noise"></div>
+      <span class="scene-star star-a">✦</span><span class="scene-star star-b">✧</span><span class="scene-star star-c">✦</span><span class="scene-star star-d">·</span><span class="scene-star star-e">✧</span>
+      <div class="scene-cloud cloud-a"></div><div class="scene-cloud cloud-b"></div>
+      <div class="scene-orbit orbit-back"></div>
+      <div class="scene-planet"><span>☾</span><i></i></div>
+      <div class="scene-orbit orbit-front"></div>
+      <div class="scene-satellite satellite-a">✦</div><div class="scene-satellite satellite-b">♡</div>
+      <div class="scene-plant plant-left">
+        <svg viewBox="0 0 130 164" role="presentation"><defs><linearGradient id="stemGlow" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#8dbaab"/><stop offset="1" stop-color="#426d77"/></linearGradient><linearGradient id="budGlow" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff0ff"/><stop offset=".42" stop-color="#caabff"/><stop offset="1" stop-color="#8265cc"/></linearGradient></defs><g fill="none" stroke="url(#stemGlow)" stroke-width="3.5" stroke-linecap="round"><path d="M65 151 Q53 95 42 28"/><path d="M67 151 Q80 98 92 45"/><path d="M63 151 Q39 112 19 75"/><path d="M69 151 Q91 118 113 80"/><path d="M66 151 Q64 101 67 54"/></g><g fill="#89bba5"><ellipse cx="51" cy="117" rx="6" ry="15" transform="rotate(-43 51 117)"/><ellipse cx="80" cy="123" rx="6" ry="15" transform="rotate(43 80 123)"/><ellipse cx="37" cy="100" rx="5" ry="13" transform="rotate(-50 37 100)"/><ellipse cx="97" cy="109" rx="5" ry="13" transform="rotate(48 97 109)"/></g><g fill="url(#budGlow)"><ellipse cx="42" cy="27" rx="6" ry="10"/><ellipse cx="35" cy="36" rx="6" ry="9"/><ellipse cx="48" cy="38" rx="6" ry="9"/><ellipse cx="92" cy="44" rx="6" ry="10"/><ellipse cx="85" cy="53" rx="6" ry="9"/><ellipse cx="98" cy="54" rx="6" ry="9"/><ellipse cx="19" cy="74" rx="6" ry="9"/><ellipse cx="14" cy="83" rx="5" ry="8"/><ellipse cx="26" cy="84" rx="5" ry="8"/><ellipse cx="113" cy="79" rx="6" ry="9"/><ellipse cx="106" cy="88" rx="5" ry="8"/><ellipse cx="119" cy="89" rx="5" ry="8"/><ellipse cx="67" cy="53" rx="6" ry="10"/><ellipse cx="60" cy="63" rx="5" ry="8"/><ellipse cx="73" cy="64" rx="5" ry="8"/></g><g fill="#fff7ff" opacity=".9"><circle cx="39" cy="25" r="2"/><circle cx="89" cy="42" r="2"/><circle cx="16" cy="72" r="1.8"/><circle cx="111" cy="77" r="1.8"/></g></svg>
+        <div class="scene-pot"><i></i></div>
+      </div>
+      <div class="scene-plant plant-right"><svg viewBox="0 0 130 164" role="presentation"><g fill="none" stroke="#6f9c91" stroke-width="3.5" stroke-linecap="round"><path d="M65 151 Q77 96 89 31"/><path d="M64 151 Q48 98 35 48"/><path d="M66 151 Q91 116 111 83"/><path d="M64 151 Q39 117 17 90"/><path d="M66 151 Q65 104 66 64"/></g><g fill="#8ab5a2"><ellipse cx="75" cy="121" rx="6" ry="15" transform="rotate(43 75 121)"/><ellipse cx="49" cy="119" rx="6" ry="15" transform="rotate(-43 49 119)"/><ellipse cx="96" cy="108" rx="5" ry="13" transform="rotate(48 96 108)"/><ellipse cx="31" cy="112" rx="5" ry="13" transform="rotate(-48 31 112)"/></g><g fill="#bba0ff"><ellipse cx="89" cy="31" rx="6" ry="10"/><ellipse cx="82" cy="40" rx="6" ry="9"/><ellipse cx="95" cy="41" rx="6" ry="9"/><ellipse cx="35" cy="48" rx="6" ry="10"/><ellipse cx="28" cy="57" rx="6" ry="9"/><ellipse cx="41" cy="58" rx="6" ry="9"/><ellipse cx="111" cy="82" rx="6" ry="9"/><ellipse cx="104" cy="91" rx="5" ry="8"/><ellipse cx="117" cy="92" rx="5" ry="8"/><ellipse cx="17" cy="89" rx="6" ry="9"/><ellipse cx="10" cy="98" rx="5" ry="8"/><ellipse cx="23" cy="99" rx="5" ry="8"/><ellipse cx="66" cy="63" rx="6" ry="10"/><ellipse cx="59" cy="72" rx="5" ry="8"/><ellipse cx="72" cy="73" rx="5" ry="8"/></g><g fill="#f8f0ff"><circle cx="86" cy="29" r="2"/><circle cx="32" cy="46" r="2"/><circle cx="108" cy="80" r="1.8"/></g></svg><div class="scene-pot"><i></i></div></div>
+      <div class="scene-plush">🐻‍❄️<span>♡</span></div>
+      <div class="scene-label"><span class="scene-label-dot"></span> LAVENDER DREAMLAND <span class="scene-label-spark">✧</span></div>
+    </div>
+    <div class="hero-actions">
+      <button class="btn btn-purple" id="randomChaos" type="button">MAKE A MESS 💥</button>
+      <button class="btn btn-yellow" id="confettiBtn" type="button">CONFETTI NOW 🎉</button>
+      <button class="btn btn-mint" id="turboMode" type="button" aria-pressed="false">TURBO DIMENSION 🪐</button>
+    </div>
+  </header>
+
+  <section class="section" aria-label="Mini games">
+    <div class="section-title"><span class="section-icon">🧃</span><h2>tiny games. <span class="rainbow">big nonsense.</span></h2><p>Zero skills required. Maximum silliness guaranteed-ish.</p></div>
+    <div class="play-grid">
+      <article class="play-card" style="--wash:#ffd0e7" id="boopCard">
+        <div class="card-head"><h3>01 · BOOP THE BEAN</h3><span class="card-badge">BOOPABLE™</span></div>
+        <div class="character-box"><button class="character" id="boopBean" type="button" aria-label="Boop the silly face">🥹</button></div>
+        <button class="btn btn-pink full-btn" id="boopButton" type="button">BOOP IT 👉</button>
+        <div class="joke-bubble" id="boopMessage" aria-live="polite">the bean is standing by.</div>
+        <div class="status"><span>BOOP POWER</span><span id="boopCount">0 / 10</span></div><div class="meter"><span id="boopMeter"></span></div>
+      </article>
+
+      <article class="play-card" style="--wash:#dcd2ff">
+        <div class="card-head"><h3>02 · HEART HEIST</h3><span class="card-badge">15 SECONDS</span></div>
+        <div class="game-zone" id="gameZone" aria-label="Tap the floating hearts to collect them">
+          <div class="game-overlay" id="gameOverlay">💖<br>steal the sparkles</div>
+        </div>
+        <div class="score-row"><span class="score-pill">💗 <span id="score">0</span> caught</span><span class="score-pill">⏱️ <span id="timer">15</span>s</span></div>
+        <button class="btn btn-purple full-btn" id="startGame" type="button">START THE HEIST 🥷</button>
+      </article>
+
+      <article class="play-card" style="--wash:#fff0ad">
+        <div class="card-head"><h3>03 · CATCH THIS LOSER</h3><span class="card-badge">HEHEHE</span></div>
+        <div class="run-zone" id="runZone"><button class="btn btn-yellow" id="runaway" type="button">CATCH ME 😛</button><button class="btn btn-soft" id="catchMe" type="button">GOTCHA!</button></div>
+        <p class="run-foot" id="runMessage" aria-live="polite">one button has zero manners.</p>
+      </article>
+
+      <article class="play-card" style="--wash:#c8f7e7">
+        <div class="card-head"><h3>04 · VIBE CHECK</h3><span class="card-badge">SCIENTIFIC*</span></div>
+        <div class="character-box"><div class="character" id="vibeFace" aria-hidden="true">🧐</div></div>
+        <button class="btn btn-mint full-btn" id="vibeButton" type="button">CALCULATE VIBES 🧪</button>
+        <div class="joke-bubble" id="vibeMessage" aria-live="polite">*science conducted by a potato.</div>
+      </article>
+
+
+      <article class="play-card" style="--wash:#d8d0ff" id="courtCard">
+        <div class="card-head"><h3>05 · GOBLIN COURT</h3><span class="card-badge">OBJECTION!!</span></div>
+        <div class="toy-stage"><div class="toy-face" id="courtFace" aria-hidden="true">⚖️🐸</div></div>
+        <button class="btn btn-purple full-btn" id="courtButton" type="button">ISSUE A VERDICT 👩‍⚖️</button>
+        <div class="toy-answer" id="courtAnswer" aria-live="polite">the court is currently eating glitter.</div>
+      </article>
+
+      <article class="play-card" style="--wash:#c8f7e7" id="raccoonCard">
+        <div class="card-head"><h3>06 · FEED THE GREMLIN</h3><span class="card-badge">SNACK TAX</span></div>
+        <div class="toy-stage"><button class="toy-face" id="raccoonFace" type="button" aria-label="Pet the tiny raccoon" style="border:0;background:transparent;cursor:pointer">🦝</button></div>
+        <div class="status"><span>SNACK LEVEL</span><span id="snackCount">0 / 100</span></div><div class="meter"><span id="snackMeter"></span></div>
+        <div class="snack-row"><button class="snack-btn" type="button" data-snack="🍓">🍓 berry</button><button class="snack-btn" type="button" data-snack="🍟">🍟 fries</button><button class="snack-btn" type="button" data-snack="🧀">🧀 cheese</button></div>
+        <div class="toy-answer" id="raccoonMessage" aria-live="polite">he has committed 14 tiny crimes.</div>
+      </article>
+
+      <article class="play-card" style="--wash:#ffe6a6" id="wheelCard">
+        <div class="card-head"><h3>07 · WHEEL OF NONSENSE</h3><span class="card-badge">100% UNQUALIFIED</span></div>
+        <div class="toy-stage">
+          <div class="wheel-wrap" id="vibeWheel" aria-label="Colorful spinning wheel"><span class="wheel-pointer">👇</span><div class="wheel-core" id="wheelCore">🎲</div></div>
+        </div>
+        <button class="btn btn-yellow full-btn" id="spinButton" type="button">SPIN THE WHEEL 🎡</button>
+        <div class="toy-answer" id="wheelAnswer" aria-live="polite">your destiny has buffering issues.</div>
+      </article>
+
+      <article class="play-card" style="--wash:#ffcbd9" id="dangerCard">
+        <div class="card-head"><h3>08 · DEFINITELY DON'T</h3><span class="card-badge">BAD IDEA™</span></div>
+        <div class="toy-stage"><div class="toy-face" id="dangerFace" aria-hidden="true">🚨</div></div>
+        <button class="danger-btn" id="dangerButton" type="button">DO NOT PRESS THIS.</button>
+        <div class="toy-answer" id="dangerMessage" aria-live="polite">this button has been banned in 7 countries.</div>
+        <div class="tiny-counter">INCIDENT REPORTS: <span id="incidentCount">0</span></div>
+      </article>
+
+      <article class="play-card chaos-card" style="--wash:#ffd0e5">
+        <div class="card-head"><h3>CHAOS METER</h3><span class="card-badge">VERY IMPORTANT DATA</span></div>
+        <div class="chaos-row">
+          <div class="chaos-stat"><b id="chaosScore">000</b><span>CHAOS POINTS</span></div>
+          <button class="big-chaos" id="chaosButton" type="button" aria-label="Add chaos points">🧨</button>
+          <div class="chaos-stat"><b id="rank">BABY</b><span>YOUR RANK</span></div>
+        </div>
+        <div class="meter"><span id="chaosMeter"></span></div>
+        <div class="joke-bubble" id="chaosMessage" aria-live="polite">press the suspicious button. do it. 👀</div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section sidequests" aria-label="Bonus side quests">
+    <div class="section-title"><span class="section-icon">🛸</span><h2>bonus dimension. <span class="rainbow">no supervision.</span></h2><p>four more tiny disasters. zero useful life skills acquired.</p></div>
+    <div class="quest-grid">
+      <article class="quest-card" style="--questwash:#ffe1ef" id="questCard">
+        <div class="quest-head"><h3>09 · SIDE-QUEST DISPATCH</h3><span class="quest-badge">DO THE BIT™</span></div>
+        <div class="quest-stage"><div class="quest-hero" id="questAvatar" aria-hidden="true">📜</div></div>
+        <div class="quest-result" id="questText" aria-live="polite">a quest awaits. the quest union is on break.</div>
+        <div class="quest-buttons dual"><button class="btn btn-purple" id="rollQuest" type="button">NEW QUEST 🎲</button><button class="btn btn-mint" id="completeQuest" type="button" disabled>DONE ✅</button></div>
+        <div class="quest-status"><span>QUEST XP</span><span class="quest-xp" id="questXp">0 XP</span></div><div class="meter"><span id="questMeter" style="width:0%"></span></div>
+      </article>
+      <article class="quest-card" style="--questwash:#e7e0ff" id="mutantCard">
+        <div class="quest-head"><h3>10 · MUTANT LAB</h3><span class="quest-badge">SCIENCE??</span></div>
+        <div class="quest-stage" id="monsterStage"><div class="monster-stack" id="monsterDisplay" aria-label="Duck dinosaur spaceship monster"><span>🦆</span><span>🦖</span><span>🛸</span></div></div>
+        <div class="quest-result" id="monsterName" aria-live="polite">Professor Quackzilla, PhD in nonsense.</div>
+        <div class="quest-buttons"><button class="btn btn-pink" id="mutateButton" type="button">MUTATE THE BEAST 🧬</button></div>
+      </article>
+      <article class="quest-card" style="--questwash:#d6f8ed" id="npcCard">
+        <div class="quest-head"><h3>11 · NPC DIALOGUE</h3><span class="quest-badge">SIDE CHARACTER</span></div>
+        <div class="quest-stage"><div class="quest-hero" id="npcEmoji" aria-hidden="true">🧙‍♀️</div></div>
+        <div class="npc-bubble" id="npcLine" aria-live="polite">“I sell suspicious soup. It knows what you did.”</div>
+        <div class="npc-label" id="npcSpeaker">Mysterious Village Wizard</div>
+        <div class="quest-buttons"><button class="btn btn-mint" id="npcButton" type="button">TALK TO STRANGER 🗣️</button></div>
+      </article>
+      <article class="quest-card" style="--questwash:#ffe7b8" id="gooseCard">
+        <div class="quest-head"><h3>12 · GOOSE INVASION</h3><span class="quest-badge">HONK PROTOCOL</span></div>
+        <div class="quest-stage goose-stage"><div class="goose-portal" aria-hidden="true"></div><div class="goose-mascot" id="gooseMascot" aria-hidden="true">🪿</div></div>
+        <div class="quest-result" id="gooseMessage" aria-live="polite">the geese are outside. they have a clipboard.</div>
+        <div class="quest-buttons"><button class="btn btn-yellow" id="gooseButton" type="button">SUMMON THE GEESE 📣</button></div>
+        <div class="quest-status"><span>HONKS REGISTERED</span><span class="quest-xp" id="gooseCount">0</span></div>
+      </article>
+    </div>
+    <p class="sidequest-footnote">🪻 lavender-certified nonsense · every button is a tiny portal to a worse decision 🪻</p>
+  </section>
+
+  <footer><span>🩷</span> handcrafted nonsense for Sienna Nicole <span>🩷</span></footer>
+</main>
+<div class="effects-layer" id="effectsLayer" aria-hidden="true"></div>
+<div class="goose-layer" id="gooseLayer" aria-hidden="true"></div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<div class="system-modal" id="systemModal" role="dialog" aria-modal="true" aria-labelledby="systemTitle" aria-hidden="true">
+  <div class="system-window">
+    <div class="system-titlebar"><span>SIENNA OS · EMERGENCY</span><span class="system-dots">● ● ●</span></div>
+    <div class="system-body"><span class="system-icon" aria-hidden="true">🫠</span><h2 id="systemTitle">FATAL ERROR 420</h2><p id="systemText">Too much silliness detected. The computer needs a juice box and a little lie down.</p><button class="modal-close" id="closeModal" type="button">OKAY, MY BAD 😭</button></div>
+  </div>
+</div>
+<div class="achievement" id="achievement" role="status" aria-live="polite">🏆 ACHIEVEMENT UNLOCKED<small id="achievementText">Certified silly goose.</small></div>
+
+
+<script>
+(() => {
+  'use strict';
+  const $ = (id) => document.getElementById(id);
+  const audio = $('song');
+  const enterScreen = $('enterScreen');
+  const app = $('app');
+  const musicToggle = $('musicToggle');
+  const musicText = $('musicText');
+  const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  let chaos = 0, boops = 0, score = 0, gameActive = false, timeLeft = 15, timerId = null, spawnId = null, toastId = null;
+  const boopLines = ['BONK! the bean has feelings 😭','you have unlocked: silly goose mode 🪿','bean.exe has stopped beaning 💫','respectfully… BONK BONK BONK','the bean requests a tiny snack 🍪','certified professional booper 🏆','the bean is filing a complaint 📄','emotional damage. but cute. 💘','boop detected. dispatching sparkles ✨','MAXIMUM BOOPAGE ACHIEVED 🫡'];
+  const vibeLines = [ ['👑','vibe: suspiciously iconic'],['🦦','vibe: tiny otter energy'],['🛸','vibe: not from this planet'],['🍓','vibe: 99% strawberry'],['🦖','vibe: cute but dangerous'],['🪩','vibe: disco goblin'],['🐸','vibe: moisturised frog'],['🧚','vibe: premium fairy dust'],['🍟','vibe: french-fry royalty'],['🐈','vibe: cat with admin access'] ];
+  const chaosLines = ['the council is concerned 😳','someone hide the glitter','chaos levels: legally questionable','the vibes are doing backflips','NASA has been notified 🚀','a tiny raccoon is now in charge','the universe said “girl pls”','emergency sprinkles deployed','the silliness has breached containment'];
+  const random = (arr) => arr[Math.floor(Math.random()*arr.length)];
+
+  function syncMusic(){const playing=!audio.paused;musicToggle.classList.toggle('playing',playing);musicToggle.setAttribute('aria-pressed',String(playing));musicText.textContent=playing?'♫ vibes: ON':'♫ vibes: off';}
+  async function playMusic(){try{audio.volume=.55;await audio.play();}catch(e){showToast('put 1.mp3 beside index.html 🎵');}syncMusic();}
+  function showToast(msg){const t=$('toast');t.textContent=msg;t.classList.add('show');clearTimeout(toastId);toastId=setTimeout(()=>t.classList.remove('show'),2100);}
+  function addChaos(n=1){chaos=Math.max(0,chaos+n);$('chaosScore').textContent=String(chaos).padStart(3,'0');$('chaosMeter').style.width=Math.min(100,chaos*2)+'%';$('rank').textContent=chaos<10?'BABY':chaos<25?'GOBLIN':chaos<50?'MENACE':chaos<80?'CHAOS': 'ICON';$('chaosMessage').textContent=random(chaosLines);}
+  function burst(x,y,count=16,emojis=['💖','✨','🎀','⭐','🩷','🫧']){if(reducedMotion)return;for(let i=0;i<count;i++){const el=document.createElement('span');el.className='floaty';el.textContent=random(emojis);el.style.setProperty('--x',(x+(Math.random()*30-15))+'px');el.style.setProperty('--y',(y+(Math.random()*30-15))+'px');el.style.setProperty('--size',(16+Math.random()*23)+'px');el.style.setProperty('--dx',(Math.random()*240-120)+'px');el.style.setProperty('--dy',(-55-Math.random()*220)+'px');el.style.setProperty('--rot',(Math.random()*180-90)+'deg');$('effectsLayer').appendChild(el);el.addEventListener('animationend',()=>el.remove(),{once:true});}}
+  function burstCenter(node,emojis){const r=node.getBoundingClientRect();burst(r.left+r.width/2,r.top+r.height/2,20,emojis);}
+  function confetti(){burst(window.innerWidth/2,window.innerHeight*.48,42,['🎉','🥳','🎊','🍓','💖','⭐','🪩','🦋']);addChaos(3);document.body.classList.remove('shake');void document.body.offsetWidth;document.body.classList.add('shake');showToast(random(['PARTY MODE ACTIVATED 🎉','confetti budget: bankrupt','everyone remain silly 🫡','the sparkle department is thriving']));}
+
+  // Little background sparkles: decorative and light enough for mobile.
+  const field=$('sparkleField');
+  for(let i=0;i<24;i++){const s=document.createElement('span');s.className='twinkle';s.textContent=Math.random()>.5?'✦':'·';s.style.left=(Math.random()*100)+'%';s.style.top=(Math.random()*100)+'%';s.style.fontSize=(10+Math.random()*18)+'px';s.style.animationDelay=(-Math.random()*3)+'s';field.appendChild(s);}
+
+  // The entry button playfully dodges exactly five times; the fifth tap unlocks the site.
+  const entryButton=$('enterButton'), entryButtonStage=$('entryButtonStage');
+  let entryClicks=0, entryMoves=0, entryOpening=false, entryBoops=0;
+  const entryLabels=['UNLEASH THE GOOF 🚀','TOO SLOW 😼','HEHE OVER HERE 🐣','CATCH ME 🥔','ONE MORE 🍼','OKAY YOU WIN 💜'];
+  const entryMessages=[
+    'Click the button 5 times to enter, tiny potato. Yes, FIVE. 🥔🍼',
+    '1/5. EHEHE. Four more taps, widdle menace. The button has zoomies. 😼',
+    '2/5. Awww, look at those tiny thumbs working overtime. 🥹',
+    '3/5. Halfway-ish! The button fears your determination, baby boss. 🍼',
+    '4/5. ONE MORE. Don’t let a pink rectangle win, tiny legend. 😭',
+    '5/5. OKAY OKAY, YOU WIN. Your royal entrance is loading… 👑💜'
+  ];
+  const entrySpots=[[.12,.26],[.84,.34],[.3,.76],[.72,.72],[.52,.2],[.1,.58],[.89,.56],[.45,.82]];
+  function dodgeEntryButton(){
+    const stageW=entryButtonStage.clientWidth, stageH=entryButtonStage.clientHeight;
+    const bw=entryButton.offsetWidth, bh=entryButton.offsetHeight, pad=4;
+    const minX=bw/2+pad, maxX=Math.max(minX,stageW-bw/2-pad);
+    const minY=bh/2+pad, maxY=Math.max(minY,stageH-bh/2-pad);
+    const spot=entrySpots[entryMoves%entrySpots.length];
+    const x=minX+spot[0]*(maxX-minX), y=minY+spot[1]*(maxY-minY);
+    entryButton.style.left=x+'px'; entryButton.style.top=y+'px';
+    entryButton.style.setProperty('--dodge-tilt',((entryMoves%2?1:-1)*(2+entryMoves%3))+'deg');
+    entryButton.classList.remove('entry-dodge-pop'); void entryButton.offsetWidth; entryButton.classList.add('entry-dodge-pop');
+    entryMoves++;
+    burstCenter(entryButton,['💨','🩷','✨','🍼','🥔']);
+  }
+  function openSillyWebsite(){
+    entryOpening=true; enterScreen.classList.add('gone'); app.classList.add('ready'); playMusic();
+    burst(window.innerWidth/2,window.innerHeight/2,36,['🚀','🐣','💖','✨','🎀','🪻','🍼']); addChaos(2);
+  }
+  entryButton.addEventListener('click',()=>{
+    if(entryOpening||entryClicks>=5)return;
+    entryClicks++;
+    $('entryCount').textContent=entryClicks+' / 5 CLICKS';
+    $('entryProgressBar').style.width=(entryClicks*20)+'%';
+    $('entryTease').textContent=entryMessages[entryClicks];
+    entryButton.textContent=entryLabels[entryClicks];
+    entryButton.setAttribute('aria-label',entryLabels[entryClicks]+' — entry click '+entryClicks+' of 5');
+    dodgeEntryButton();
+    if(entryClicks===5){
+      entryOpening=true; entryButton.disabled=true; entryButton.classList.add('entry-final-dodge');
+      $('entryTease').textContent=entryMessages[5];
+      $('entryCount').textContent='5 / 5 CLICKS — BABY CERTIFIED 👑';
+      setTimeout(openSillyWebsite,760);
+    }
+  });
+  $('entryMascot').addEventListener('click',()=>{
+    entryBoops++;
+    const faces=['😳','🥹','😵‍💫','😼','🐥','🤨','👁️👄👁️'];
+    $('entryMascot').textContent=random(faces);
+    $('entryBoopCount').textContent=Math.min(entryBoops,3)+'/3';
+    const notes=entryBoops===1?'EEP! personal space, tiny human. 😳':entryBoops===2?'that was a premium-grade boop. the chick demands snacks. 🍓':'BOOP BADGE EARNED: certified baby wrangler. 🏆🍼';
+    $('entryBoopNote').firstChild.textContent=notes+' ';
+    burstCenter($('entryMascot'),['💗','✨','🐣','🪻']);
+    if(entryBoops===3)showToast('BABY WRANGLER CERTIFIED 🏆');
+    if(entryBoops>3)$('entryBoopNote').firstChild.textContent='the chick has contacted its tiny lawyer. ⚖️ ';
+  });
+  musicToggle.addEventListener('click',async()=>{if(audio.paused)await playMusic();else{audio.pause();syncMusic();}});
+  audio.addEventListener('play',syncMusic);audio.addEventListener('pause',syncMusic);audio.addEventListener('error',()=>{musicText.textContent='♫ add 1.mp3';});
+
+  function boop(){boops++;$('boopCount').textContent=Math.min(boops,10)+' / 10';$('boopMeter').style.width=Math.min(100,boops*10)+'%';$('boopMessage').textContent=random(boopLines);const bean=$('boopBean');bean.classList.remove('booped');void bean.offsetWidth;bean.classList.add('booped');bean.textContent=random(['🥹','😵‍💫','😳','🫠','😼','🤡','🐥','🥸','👁️👄👁️']);burstCenter(bean,['💗','✨','💫','💥']);addChaos(1);if(boops===10)showToast('BOOP MASTER UNLOCKED 🏆');}
+  $('boopBean').addEventListener('click',boop);$('boopButton').addEventListener('click',boop);
+  $('randomChaos').addEventListener('click',()=>{confetti();$('vibeFace').textContent=random(['🤪','🥴','😼','🦆','👽','🦄']);$('boopBean').textContent=random(['🥹','😵‍💫','😳','🫠','😼','🤡']);});
+  $('confettiBtn').addEventListener('click',confetti);
+  $('vibeButton').addEventListener('click',()=>{const v=random(vibeLines);$('vibeFace').textContent=v[0];$('vibeMessage').textContent=v[1];addChaos(2);burstCenter($('vibeFace'),['🧪','✨','⭐']);});
+  $('chaosButton').addEventListener('click',()=>{addChaos(5+Math.floor(Math.random()*6));burstCenter($('chaosButton'),['🧨','💥','🍓','✨']);$('chaosButton').textContent=random(['🧨','💣','🦖','🪿','🍟','🤡','🛸']);});
+
+  // Catch-the-sparkle game: all targets are real buttons, so taps and keyboards work.
+  const zone=$('gameZone');
+  function clearGame(){clearInterval(timerId);clearInterval(spawnId);zone.querySelectorAll('.target').forEach(n=>n.remove());}
+  function spawnTarget(){if(!gameActive||zone.querySelectorAll('.target').length>=6)return;const el=document.createElement('button');el.type='button';el.className='target';el.textContent=random(['💖','⭐','🎀','🩷','🍓','✨','🫧','🌸']);el.setAttribute('aria-label','Collect '+el.textContent);const maxX=Math.max(0,zone.clientWidth-48),maxY=Math.max(0,zone.clientHeight-48);el.style.left=(Math.random()*maxX)+'px';el.style.top=(Math.random()*maxY)+'px';el.addEventListener('click',()=>{if(!gameActive)return;score++;$('score').textContent=score;burstCenter(el,['💖','✨','⭐']);el.remove();addChaos(1);if(score>=15)showToast('HEART HEIST LEGEND 💗');spawnTarget();});zone.appendChild(el);}
+  function endGame(){gameActive=false;clearGame();$('gameOverlay').classList.remove('hidden');$('gameOverlay').innerHTML=score>=10?'🏆<br>HEIST LEGEND':'💗<br>heist complete';$('startGame').textContent='PLAY AGAIN 🔁';showToast(score>=10?'YOU STOLE '+score+' SPARKLES. MENACE!':'you got '+score+' sparkles. suspiciously cute.');}
+  function startGame(){clearGame();gameActive=true;score=0;timeLeft=15;$('score').textContent='0';$('timer').textContent='15';$('gameOverlay').classList.add('hidden');$('startGame').textContent='HEIST IN PROGRESS…';for(let i=0;i<4;i++)spawnTarget();spawnId=setInterval(spawnTarget,620);timerId=setInterval(()=>{timeLeft--;$('timer').textContent=String(timeLeft);if(timeLeft<=0){clearInterval(timerId);endGame();}},1000);addChaos(1);}
+  $('startGame').addEventListener('click',startGame);
+  window.addEventListener('resize',()=>{if(gameActive){zone.querySelectorAll('.target').forEach(el=>{el.style.left=Math.min(parseFloat(el.style.left)||0,Math.max(0,zone.clientWidth-48))+'px';el.style.top=Math.min(parseFloat(el.style.top)||0,Math.max(0,zone.clientHeight-48))+'px';});}});
+
+  // Desktop pointer dodge, but still catchable by tapping on phones.
+  const runaway=$('runaway'),runZone=$('runZone');let dodges=0;
+  function dodge(){const z=runZone.getBoundingClientRect(),b=runaway.getBoundingClientRect();const maxX=Math.max(0,z.width-b.width-12),maxY=Math.max(0,z.height-b.height-10);runaway.style.position='absolute';runaway.style.left=(6+Math.random()*maxX)+'px';runaway.style.top=(6+Math.random()*maxY)+'px';dodges++;$('runMessage').textContent=random(['YOU CANNOT CATCH THE SILLY 😛','too slow bestie','my lawyer said run','WHEEEEEEEEE','button has legs now 🏃','skill issue, respectfully']);if(dodges%3===0)addChaos(1);}
+  runaway.addEventListener('pointerenter',(e)=>{if(e.pointerType==='mouse'&&window.innerWidth>650)dodge();});
+  runaway.addEventListener('click',()=>{burstCenter(runaway,['😛','💨','🩷']);$('runMessage').textContent=random(['OK FINE. YOU GOT ME 😭','that was a lucky tap','I LET YOU WIN. obviously.','caught in 4K 📸']);addChaos(2);});
+  $('catchMe').addEventListener('click',()=>{runaway.style.position='static';runaway.style.left='';runaway.style.top='';$('runMessage').textContent=random(['GOTCHA! …wait, what? 🤨','the button has been humbled','achievement unlocked: button catcher','the silly has been contained']);burstCenter(runZone,['🏆','✨','💖']);addChaos(3);});
+
+
+
+  // The Goblin Court: extremely fake law, extremely real nonsense.
+  const verdicts = [
+    ['GUILTY 😤','guilty of stealing the last fry. sentence: 900 years of snack duty.'],
+    ['CASE DISMISSED 🧑‍⚖️','the frog judge fell asleep. justice will be rescheduled never.'],
+    ['CRIMINAL CUTENESS 🚔','the jury has fainted. nobody here is qualified to continue.'],
+    ['BONK WARRANT 📜','wanted for excessive silliness in the first degree.'],
+    ['NOT GUILTY 🫡','the evidence was eaten by a raccoon. you are free to go.'],
+    ['SENTENCED TO NAPS 💤','three naps, two snacks, and one dramatic sigh.'],
+    ['COURTROOM DISCO 🪩','the judge has started dancing. proceedings are cancelled.'],
+    ['ILLEGAL AMOUNTS OF ✨','the glitter limit has been exceeded. evacuate the ballroom.']
+  ];
+  $('courtButton').addEventListener('click',()=>{const v=random(verdicts);$('courtFace').textContent=random(['⚖️🐸','🧑‍⚖️🦆','👨‍⚖️🐸','🐸🔨','🦝📜']);$('courtAnswer').textContent=v[0]+' — '+v[1];$('courtCard').classList.remove('pop-card');void $('courtCard').offsetWidth;$('courtCard').classList.add('pop-card');burstCenter($('courtFace'),['⚖️','✨','🐸','📜']);addChaos(2);if(Math.random()<.22)showToast('THE FROG HAS SPOKEN 🐸');});
+
+  // A tiny raccoon with an extremely expensive snack habit.
+  let snackLevel=0, snackBusy=false;
+  const snackReactions = {
+    '🍓':['berry acquired. tiny goblin happy.','he has licked the berry. with legal permission.'],
+    '🍟':['FRIES?! he has seen the face of god.','one fry for you. nineteen for the raccoon.'],
+    '🧀':['cheese secured. the heist continues.','he is now 3% more powerful.']
+  };
+  function updateSnack(){ $('snackCount').textContent=snackLevel+' / 100';$('snackMeter').style.width=snackLevel+'%'; }
+  function feedSnack(snack){if(snackBusy)return;snackBusy=true;const gain=18+Math.floor(Math.random()*21);snackLevel=Math.min(100,snackLevel+gain);updateSnack();$('raccoonFace').textContent=random(['🦝','🥹','🦝','😳']);$('raccoonMessage').textContent=random(snackReactions[snack]||['snack acquired']);$('raccoonFace').classList.remove('bounce');void $('raccoonFace').offsetWidth;$('raccoonFace').classList.add('bounce');burstCenter($('raccoonFace'),[snack,'💚','✨']);addChaos(1);if(snackLevel>=100){$('raccoonFace').textContent='👑🦝';$('raccoonMessage').textContent='THE RACCOON HAS ASCENDED. he owns this website now.';showToast('RACCOON OVERLORD ACHIEVED 🦝👑');showAchievement('SNACK DIPLOMACY','You negotiated with a raccoon. brave.');addChaos(8);confetti();setTimeout(()=>{snackLevel=20;updateSnack();$('raccoonFace').textContent='🦝';$('raccoonMessage').textContent='he has returned from his snack kingdom.';snackBusy=false;},1100);}else{setTimeout(()=>snackBusy=false,220);}}
+  document.querySelectorAll('[data-snack]').forEach(btn=>btn.addEventListener('click',()=>feedSnack(btn.dataset.snack)));
+  $('raccoonFace').addEventListener('click',()=>{const lines=['he stole your wallet. politely.','petting fee: one thousand blueberries.','he is pretending to be a normal raccoon. suspicious.','the raccoon says: tax season is coming.'];$('raccoonMessage').textContent=random(lines);burstCenter($('raccoonFace'),['💸','🦝','✨']);addChaos(1);});
+
+  // Wheel of absolutely unlicensed predictions.
+  const wheelFates = [
+    ['🦆','the council has appointed you Head Duck.'],['🍟','your destiny is 70% fries.'],['🪩','you must dance for exactly 4 seconds.'],['🛌','the universe recommends a tiny nap.'],['🛸','aliens think you are the funny one.'],['🧃','hydration! the plot twist nobody expected.'],['🦖','you are legally a tiny dinosaur now.'],['👑','royalty status granted. taxes still apply.'],['🐸','a frog has selected you as its champion.'],['🍓','you have unlocked strawberry brain.'],['💅','main character energy. budget: unlimited.'],['🤡','clown mode enabled. cannot be disabled.']
+  ];
+  let wheelBusy=false,wheelDegrees=0;
+  $('spinButton').addEventListener('click',()=>{if(wheelBusy)return;wheelBusy=true;$('spinButton').disabled=true;$('spinButton').textContent='CONSULTING THE VIBES…';const fate=random(wheelFates);wheelDegrees+=1440+Math.floor(Math.random()*360);$('vibeWheel').style.transform='rotate('+wheelDegrees+'deg)';$('wheelAnswer').textContent='the universe is buffering…';setTimeout(()=>{$('wheelCore').textContent=fate[0];$('wheelAnswer').textContent=fate[1];$('spinButton').disabled=false;$('spinButton').textContent='SPIN AGAIN 🎡';wheelBusy=false;burstCenter($('vibeWheel'),[fate[0],'✨','🎉']);addChaos(3);if(Math.random()<.25)showAchievement('DESTINY HAS SPOKEN',fate[1]);},1080);});
+
+  // Repeated presses cause increasingly theatrical fake computer emergencies.
+  let incidents=0,modalReturnFocus=null;
+  const modal=$('systemModal');
+  function openSystemModal(){modalReturnFocus=document.activeElement;modal.classList.add('open');modal.setAttribute('aria-hidden','false');$('closeModal').focus();}
+  function closeSystemModal(){modal.classList.remove('open');modal.setAttribute('aria-hidden','true');if(modalReturnFocus&&modalReturnFocus.focus)modalReturnFocus.focus();}
+  $('closeModal').addEventListener('click',closeSystemModal);
+  modal.addEventListener('click',(e)=>{if(e.target===modal)closeSystemModal();});
+  document.addEventListener('keydown',(e)=>{if(e.key==='Escape'&&modal.classList.contains('open'))closeSystemModal();});
+  const incidentLines = [
+    'you pressed it. unbelievable scenes.','the pigeons have been notified. they are typing…','a hamster has submitted a formal complaint.','the button has unionized. negotiations failed.','reality has been restarted using a paperclip.','achievement unlocked: PROFESSIONAL BUTTON IGNORER.','the glitter reserves are at 2%. what have you done?'
+  ];
+  $('dangerButton').addEventListener('click',()=>{incidents++;$('incidentCount').textContent=incidents;$('dangerFace').textContent=random(['🚨','🫠','🦆','🤡','💥','🪿','🥸']);$('dangerMessage').textContent=random(incidentLines);addChaos(incidents<4?2:5);burstCenter($('dangerFace'),['🚨','💥','🧯','✨']);
+    if(incidents===1){$('dangerButton').textContent='I SAID DO NOT 😭';showToast('FIRST INCIDENT LOGGED. SHAME.');}
+    else if(incidents===2){$('dangerButton').textContent='SERIOUSLY, STOP';document.body.classList.remove('shake');void document.body.offsetWidth;document.body.classList.add('shake');}
+    else if(incidents===3){$('dangerButton').textContent='THE CONSEQUENCES ARE LOADING';$('systemTitle').textContent='FATAL ERROR 420';$('systemText').textContent='Too much Sienna energy detected. Please feed the computer a juice box and pretend this never happened.';openSystemModal();}
+    else if(incidents===4){$('dangerButton').textContent='YOU BROKE THE SILLY';document.body.classList.add('glitchy');setTimeout(()=>document.body.classList.remove('glitchy'),850);confetti();showAchievement('REALITY GLITCHED','IT support has left the group chat.');}
+    else { $('dangerButton').textContent=random(['REBOOT THE GREMLIN 🔁','ABSOLUTELY NO MORE','ONE LAST BUTTON PRESS?']);if(incidents%3===0)showAchievement('CHAOS INTERN','Your unpaid internship is going terribly.');if(incidents%5===0){$('systemTitle').textContent='SYSTEM OVER-GOOFED';$('systemText').textContent='Incident #'+incidents+': the silly levels are beyond the chart. Please touch grass, or at least a plushie.';openSystemModal();}}
+  });
+
+  // Little achievement popups reward exploration without using alerts or leaving the page.
+  let achievementId=null;
+  function showAchievement(title,description){const el=$('achievement');el.firstChild.textContent='🏆 '+title;$('achievementText').textContent=description;el.classList.add('show');clearTimeout(achievementId);achievementId=setTimeout(()=>el.classList.remove('show'),2600);}
+  // Award one small badge for exploring most toys.
+  let toysTouched=new Set();
+  document.querySelectorAll('#boopButton,#startGame,#catchMe,#vibeButton,#chaosButton,#courtButton,[data-snack],#spinButton,#dangerButton').forEach(btn=>btn.addEventListener('click',()=>{toysTouched.add(btn.id||btn.dataset.snack||'snack');if(toysTouched.size>=8){let already=false;try{already=sessionStorage.getItem('siennaExplorerAward')==='1';}catch(_){}if(!already){try{sessionStorage.setItem('siennaExplorerAward','1');}catch(_){}showAchievement('CERTIFIED CHAOS GREMLIN','You poked basically everything. Respect.');confetti();}}}));
+
+  // Keyboard and click/touch interactions share this tiny surprise.
+  document.addEventListener('click',(e)=>{if(e.target.closest('button')&&!e.target.closest('.target')){const r=e.target.getBoundingClientRect();if(Math.random()<.24)burst(r.left+r.width/2,r.top+r.height/2,5,['✦','💗','⭐']);}});
+  document.addEventListener('visibilitychange',()=>{if(document.hidden&&gameActive){clearInterval(timerId);clearInterval(spawnId);gameActive=false;$('gameOverlay').classList.remove('hidden');$('gameOverlay').innerHTML='⏸️<br>game paused';$('startGame').textContent='RESUME / PLAY AGAIN';}});
+
+
+
+
+  // Bonus Dimension: offline-safe quests, mutant mashups, unhelpful NPCs, and a goose summoning ritual.
+  const sideQuests = [
+    ['🕺','perform a 3-second victory dance. stop like nothing happened.'],
+    ['🧃','present a beverage like it has won an international award.'],
+    ['🦆','give an invisible duck a very serious performance review.'],
+    ['🛋️','appoint the nearest pillow CEO of your household.'],
+    ['🎬','make a dramatic movie trailer for the nearest ordinary object.'],
+    ['🪿','walk three steps like an NPC who just received new dialogue.'],
+    ['👑','bow to a snack. it has earned your respect.'],
+    ['🧙','invent a spell that only makes toast slightly more powerful.'],
+    ['🧍','stand or sit very still for two seconds like a loading screen.'],
+    ['🕵️','investigate a harmless object as if it knows a huge secret.'],
+    ['🧦','name two socks like they are rival fantasy kingdoms.'],
+    ['🫡','salute a chair. do not explain yourself.'],
+    ['🍓','describe a strawberry as if you are a wildlife documentary narrator.'],
+    ['🪩','do one tiny disco move. budget: one shoulder.'],
+    ['🧌','make a goblin noise at a pillow, then continue your day.'],
+    ['📦','announce “THE RECTANGLE HAS ARRIVED” to any box-shaped object.'],
+    ['🧚','grant a random object one completely unnecessary magical power.'],
+    ['🦖','pretend the floor just revealed shocking gossip. react accordingly.']
+  ];
+  let activeQuest=null, questXP=0, gooseCount=0, mutantCount=0, npcCount=0;
+  function triggerQuestStage(node){node.classList.remove('is-changing');void node.offsetWidth;node.classList.add('is-changing');}
+  $('rollQuest').addEventListener('click',()=>{
+    activeQuest=random(sideQuests);$('questAvatar').textContent=activeQuest[0];$('questText').textContent=activeQuest[1];$('completeQuest').disabled=false;$('completeQuest').textContent='DONE ✅';
+    triggerQuestStage($('questCard').querySelector('.quest-stage'));burstCenter($('questAvatar'),['📜','✨','🪻','🎲']);addChaos(1);showToast('SIDE QUEST ACCEPTED. THE COUNCIL IS CONFUSED.');
+  });
+  $('completeQuest').addEventListener('click',()=>{
+    if(!activeQuest)return;questXP+=10;const finished=activeQuest;activeQuest=null;$('questXp').textContent=questXP+' XP';$('questMeter').style.width=Math.min(100,questXP%110)+'%';$('questText').textContent=random(['quest complete. no one knows why.','the village elders are mildly impressed.','you did it. the soundtrack swelled for no reason.','quest cleared. reward: imaginary paperwork.','legend says the pillow will remember this.']);$('questAvatar').textContent=random(['🏆','🪄','🎖️','🫡','🍓']);$('completeQuest').disabled=true;$('completeQuest').textContent='CLAIMED ✨';triggerQuestStage($('questCard').querySelector('.quest-stage'));burstCenter($('questAvatar'),['🏆','🎉','✨','🪻']);addChaos(5);showAchievement('SIDE QUEST COMPLETED',finished[1]);if(questXP%30===0)confetti();
+  });
+  const monsterParts={heads:['🦆','🐸','🦝','🐣','🦖','🦭','🐈‍⬛','🦄','🦐','🦋','🐙','🦔'],bodies:['🛸','🪩','🧃','🧀','🧦','🪄','🥐','🧸','🧊','🍓','🛹','📦'],tails:['⚡','✨','🫧','💅','🧋','🌙','🪻','💥','🎀','🦷','🍟','🧠']};
+  const monsterNames=['Dame Quackula','Sir Ribbit McWiggle','Professor Crunchwrap','The Lavender Menace','Baron von Bonk','Captain Noodle.exe','Duchess Cheesequake','Glitter Goblin Prime','Tiny Tax Evader','Lord Honkington III','Doctor Oopsie','Supreme Pickle Wizard','Count Fluffula','Beep Beep the Destroyer'];
+  $('mutateButton').addEventListener('click',()=>{
+    const a=random(monsterParts.heads),b=random(monsterParts.bodies),c=random(monsterParts.tails);$('monsterDisplay').innerHTML='<span>'+a+'</span><span>'+b+'</span><span>'+c+'</span>';$('monsterDisplay').setAttribute('aria-label',a+' '+b+' '+c);$('monsterName').textContent=random(monsterNames)+' — '+random(['licensed in absolutely nothing.','powered by 2% battery and confidence.','wanted in 4 imaginary kingdoms.','has a tiny hat budget.','smells faintly of plot twists.','currently buffering its origin story.','has 17 tabs open in its brain.','CEO of questionable decisions.']);triggerQuestStage($('monsterStage'));burstCenter($('monsterDisplay'),[a,b,c,'🧬','✨']);addChaos(3);mutantCount++;if(mutantCount===5)showAchievement('MAD SCIENTIST','You have created five legally unreviewed beings.');
+  });
+  const npcLibrary=[
+    ['🧙‍♀️','Mysterious Village Wizard','“I sell suspicious soup. It knows what you did.”'],
+    ['🦆','Duck With A Clipboard','“Your vibe application is missing Form 7B: honk.”'],
+    ['🦝','Night-Shift Raccoon','“I can improve your life. First, hand over the fries.”'],
+    ['🧌','Bridge Goblin','“Toll is one compliment to this excellent rock.”'],
+    ['🧚','Intern Fairy','“I granted your wish. It is now a monthly subscription.”'],
+    ['🧑‍🚀','Space Barista','“Your latte has escaped the atmosphere. classic.”'],
+    ['🐸','Frog Accountant','“The numbers are croaking. I recommend tax soup.”'],
+    ['🧛','Sleepy Vampire','“I only bite people who say ‘just one more episode’.”'],
+    ['🧍','Town NPC #004','“Nice weather. Anyway, I have 400 identical apples.”'],
+    ['🦖','Baby Dinosaur','“I was going to roar, but I forgot my line.”'],
+    ['🪿','Goose Diplomat','“We seek peace. Also your sandwich. Mostly sandwich.”'],
+    ['🧋','Bubble Tea Oracle','“The prophecy says: touch grass, then get a treat.”'],
+    ['🧙','Wizard Of Wi-Fi','“Have you tried turning your aura off and on again?”'],
+    ['🐈‍⬛','Suspicious Cat','“I have seen the future. You will open another snack.”'],
+    ['🧸','Sentient Plushie','“I support you. I also support a 4-hour nap.”']
+  ];
+  $('npcButton').addEventListener('click',()=>{let item=random(npcLibrary);if(npcLibrary.length>1&&item[2]===$('npcLine').textContent)item=random(npcLibrary);$('npcEmoji').textContent=item[0];$('npcSpeaker').textContent=item[1];$('npcLine').textContent=item[2];triggerQuestStage($('npcCard').querySelector('.quest-stage'));burstCenter($('npcEmoji'),['💬','✨','🪻',item[0]]);npcCount++;addChaos(2);if(npcCount===7)showAchievement('DIALOGUE OPTION HUNTER','You have exhausted seven very unqualified NPCs.');if(Math.random()<.2)showToast('NEW CHARACTER UNLOCKED: SOMEONE’S UNCLE');});
+  const gooseLines=['THE GOOSE UNION HAS ARRIVED. NEGOTIATIONS REQUIRE BREAD.','honks have been submitted in triplicate.','the lavender council has lost control of the honk economy.','a goose just challenged the moon to a duel.','the geese are now moderators. be respectful.','goose.exe is using 99% of the available honk.','the invasion was peaceful. your snacks are not safe.','a goose has asked to speak to the manager of gravity.','HONK! that is all. that is the message.','the geese have formed a tiny jazz band.'];
+  $('gooseButton').addEventListener('click',()=>{
+    gooseCount++;$('gooseCount').textContent=gooseCount;$('gooseMessage').textContent=random(gooseLines);$('gooseMascot').textContent=random(['🪿','🦢','🐣','🦆','👑🪿','🪿🪿']);triggerQuestStage($('gooseCard').querySelector('.quest-stage'));const total=reducedMotion?4:Math.min(16,7+Math.floor(Math.random()*5));
+    for(let i=0;i<total;i++){const g=document.createElement('span');g.className='goose-invader';g.textContent=random(['🪿','🦆','🪿','🪿','🐣']);g.style.setProperty('--goose-left',(Math.random()*90+3)+'vw');g.style.setProperty('--goose-top',(Math.random()*78+8)+'vh');g.style.setProperty('--goose-dx',(Math.random()*180-90)+'px');g.style.setProperty('--goose-dy',(-80-Math.random()*window.innerHeight*.58)+'px');g.style.setProperty('--goose-rot',(Math.random()*220-110)+'deg');g.style.animationDelay=(Math.random()*.32)+'s';$('gooseLayer').appendChild(g);g.addEventListener('animationend',()=>g.remove(),{once:true});if(reducedMotion)setTimeout(()=>g.remove(),500);}
+    burstCenter($('gooseMascot'),['🪿','🦆','🥖','💜','✨']);addChaos(6);showToast(random(['HONK PROTOCOL INITIATED 📣','GOOSE AIRSPACE HAS BEEN CLAIMED','please remain calm. impossible.','lavender planet now under bird management.']));if(gooseCount===3)showAchievement('HONK ENTHUSIAST','Three invasions. The geese respect your commitment.');if(gooseCount%5===0)confetti();
+  });
+
+  let setGalaxyTurbo = () => {};
+  // Canvas fallback gives the scene dimensional shading even when a browser disables WebGL.
+  function startGalaxyCanvasFallback(canvas,scene){
+    const ctx=canvas.getContext('2d');if(!ctx)return;
+    $('renderModeLabel').textContent='LIVE 3D · CANVAS';
+    scene.classList.add('webgl-ready');
+    let w=0,h=0,dpr=1,phase=0,tiltX=-.04,tiltY=0,dragging=false,lastX=0,lastY=0,turbo=false,raf=0,last=0;
+    setGalaxyTurbo=(v)=>{turbo=!!v;};
+    const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
+    function resize(){const r=canvas.getBoundingClientRect();dpr=Math.min(window.devicePixelRatio||1,2);w=Math.max(1,r.width);h=Math.max(1,r.height);const W=Math.round(w*dpr),H=Math.round(h*dpr);if(canvas.width!==W||canvas.height!==H){canvas.width=W;canvas.height=H;ctx.setTransform(dpr,0,0,dpr,0,0);}}
+    function orbit(cx,cy,rx,ry,rot,color,width,alpha=1){ctx.save();ctx.globalAlpha=alpha;ctx.translate(cx,cy);ctx.rotate(rot);ctx.beginPath();ctx.ellipse(0,0,rx,ry,0,0,Math.PI*2);ctx.lineWidth=width;ctx.strokeStyle=color;ctx.shadowColor=color;ctx.shadowBlur=12;ctx.stroke();ctx.restore();}
+    function sat(x,y,r,palette,shine=0){const g=ctx.createRadialGradient(x-r*.38,y-r*.42,r*.05,x,y,r);g.addColorStop(0,'#ffffff');g.addColorStop(.22,palette[0]);g.addColorStop(.62,palette[1]);g.addColorStop(1,palette[2]);ctx.save();ctx.shadowColor=palette[1];ctx.shadowBlur=11+shine;ctx.fillStyle=g;ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);ctx.fill();ctx.restore();ctx.fillStyle='rgba(255,255,255,.9)';ctx.beginPath();ctx.arc(x-r*.28,y-r*.3,Math.max(1,r*.16),0,Math.PI*2);ctx.fill();}
+    function gem(x,y,size,angle){ctx.save();ctx.translate(x,y);ctx.rotate(angle);ctx.shadowColor='rgba(213,188,255,.95)';ctx.shadowBlur=size*1.5;const g=ctx.createLinearGradient(-size,-size,size,size);g.addColorStop(0,'#fff');g.addColorStop(.45,'#e9dcff');g.addColorStop(1,'#a68ae9');ctx.fillStyle=g;ctx.strokeStyle='rgba(255,255,255,.95)';ctx.lineWidth=.8;ctx.beginPath();ctx.moveTo(0,-size);ctx.lineTo(size*.7,-size*.04);ctx.lineTo(size*.45,size*.8);ctx.lineTo(-size*.48,size*.8);ctx.lineTo(-size*.7,-size*.04);ctx.closePath();ctx.fill();ctx.stroke();ctx.globalAlpha=.7;ctx.strokeStyle='#fff';ctx.beginPath();ctx.moveTo(0,-size);ctx.lineTo(0,size*.8);ctx.lineTo(size*.7,-size*.04);ctx.moveTo(0,0);ctx.lineTo(-size*.7,-size*.04);ctx.stroke();ctx.restore();}
+    function draw(ms){raf=0;if(document.hidden)return;resize();const elapsed=Math.min(.05,Math.max(0,(ms-last)/1000));last=ms;phase+=elapsed*(turbo?1.6:.57);const cx=w*.5,cy=h*.405,r=Math.min(h*.31,84);const viewScale=Math.max(.72,Math.min(1.08,w/700));const rx=r*2.18,ry=r*.56;
+      ctx.clearRect(0,0,w,h);
+      // Gentle volumetric aura behind the object.
+      const halo=ctx.createRadialGradient(cx,cy,2,cx,cy,r*2.6);halo.addColorStop(0,'rgba(255,255,255,.43)');halo.addColorStop(.4,'rgba(196,169,255,.22)');halo.addColorStop(1,'rgba(195,169,255,0)');ctx.fillStyle=halo;ctx.beginPath();ctx.ellipse(cx,cy,r*2.6,r*1.4,0,0,Math.PI*2);ctx.fill();
+      // Back halves of both orbit rings.
+      orbit(cx,cy,rx,ry,-.18+tiltY*.08+Math.sin(phase*.32)*.035,'rgba(255,255,255,.86)',2.1,.74);
+      orbit(cx,cy,rx*1.17,ry*.73,.49+tiltX*.1+Math.cos(phase*.28)*.04,'rgba(208,190,255,.94)',1.7,.72);
+      const satellites=[];for(let i=0;i<5;i++){const a=phase*(.65+i*.07)+i*1.42;const radius=r*(1.82+(i%2)*.24);const x=cx+Math.cos(a)*radius;const y=cy+Math.sin(a)*r*.66+Math.sin(a*.7)*4;const sr=3.7+(i%3)*1.4;satellites.push({x,y,r:sr,a,i});if(Math.sin(a)<0)sat(x,y,sr,i%2?['#fff0f8','#db9ce7','#8b72cc']:['#fff','#d9c9ff','#8975cf']);}
+      // Cast shadow on the scene floor to anchor the floating sphere in space.
+      ctx.save();ctx.filter='blur(8px)';const shadow=ctx.createRadialGradient(cx,cy+r*.75,3,cx,cy+r*.75,r*1.55);shadow.addColorStop(0,'rgba(93,72,146,.24)');shadow.addColorStop(1,'rgba(93,72,146,0)');ctx.fillStyle=shadow;ctx.beginPath();ctx.ellipse(cx,cy+r*.75,r*1.55,r*.38,0,0,Math.PI*2);ctx.fill();ctx.restore();
+      // High-gloss lilac sphere with dynamic marbling, terminator shading and specular highlight.
+      ctx.save();ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.clip();
+      const sphere=ctx.createRadialGradient(cx-r*.38,cy-r*.43,r*.02,cx+r*.04,cy+r*.08,r*1.27);sphere.addColorStop(0,'#fffaff');sphere.addColorStop(.12,'#f7edff');sphere.addColorStop(.31,'#d9c5ff');sphere.addColorStop(.56,'#b6a0f3');sphere.addColorStop(.78,'#8976cd');sphere.addColorStop(1,'#4d407f');ctx.fillStyle=sphere;ctx.fillRect(cx-r,cy-r,r*2,r*2);
+      // Swirling cloudy lavender continents make the sphere read as a little planet.
+      ctx.globalAlpha=.31;for(let i=0;i<7;i++){const a=phase*.68+i*1.47;const x=cx+Math.cos(a)*r*.48;const y=cy+Math.sin(a*1.2)*r*.52;ctx.save();ctx.translate(x,y);ctx.rotate(a*.42);ctx.fillStyle=i%2?'#fff4ff':'#8a71d1';ctx.beginPath();ctx.moveTo(-r*.31,-r*.04);ctx.bezierCurveTo(-r*.26,-r*.28,r*.08,-r*.29,r*.2,-r*.13);ctx.bezierCurveTo(r*.35,.01*r,r*.13,r*.19,-r*.04,r*.18);ctx.bezierCurveTo(-r*.2,r*.23,-r*.38,r*.12,-r*.31,-r*.04);ctx.fill();ctx.restore();}ctx.globalAlpha=1;
+      // Glancing shine, rim and tiny crater pearls.
+      const shine=ctx.createRadialGradient(cx-r*.35,cy-r*.4,1,cx-r*.25,cy-r*.32,r*.67);shine.addColorStop(0,'rgba(255,255,255,.78)');shine.addColorStop(.34,'rgba(255,255,255,.23)');shine.addColorStop(1,'rgba(255,255,255,0)');ctx.fillStyle=shine;ctx.fillRect(cx-r,cy-r,r*2,r*2);
+      for(let i=0;i<4;i++){const a=i*2.14+phase*.055,px=cx+Math.cos(a)*r*.58,py=cy+Math.sin(a)*r*.55,pr=r*(.035+(i%2)*.012);ctx.fillStyle='rgba(93,70,161,.19)';ctx.beginPath();ctx.ellipse(px,py,pr*1.25,pr*.7,a,0,Math.PI*2);ctx.fill();ctx.fillStyle='rgba(255,255,255,.5)';ctx.beginPath();ctx.arc(px-pr*.16,py-pr*.16,pr*.36,0,Math.PI*2);ctx.fill();}
+      ctx.restore();
+      // Double glassy rim and soft reflective edge make the sphere pop forward.
+      ctx.save();ctx.beginPath();ctx.arc(cx,cy,r-.6,0,Math.PI*2);ctx.lineWidth=1.6;ctx.strokeStyle='rgba(255,255,255,.8)';ctx.shadowColor='#fff';ctx.shadowBlur=9;ctx.stroke();ctx.restore();
+      // Front sections of orbital rings cross the foreground of the planet, like a real orrery.
+      ctx.save();ctx.beginPath();ctx.rect(0,cy,w,h-cy);ctx.clip();orbit(cx,cy,rx,ry,-.18+tiltY*.08+Math.sin(phase*.32)*.035,'rgba(255,255,255,.95)',2.4,.9);orbit(cx,cy,rx*1.17,ry*.73,.49+tiltX*.1+Math.cos(phase*.28)*.04,'rgba(211,184,255,.98)',2,.84);ctx.restore();
+      // Front-side satellites and faceted 3D-looking gems.
+      for(const s of satellites)if(Math.sin(s.a)>=0)sat(s.x,s.y,s.r,s.i%2?['#fff0f8','#db9ce7','#8b72cc']:['#fff','#d9c9ff','#8975cf'],3);
+      for(let i=0;i<4;i++){const a=phase*(.42+i*.08)+i*2.1;const x=cx+Math.cos(a)*r*2.44,y=cy+Math.sin(a*1.2)*r*.84;gem(x,y,5+(i%2)*2,phase+i);}
+      // Tiny crisp glints scattered through the 3D space.
+      for(let i=0;i<11;i++){const a=i*2.399;const x=cx+Math.cos(a)*(r*2.35+(i%3)*8),y=cy+Math.sin(a*1.56)*(r*1.02);const s=1.4+(i%3)*.7;ctx.save();ctx.translate(x,y);ctx.rotate(phase*.13+i);ctx.strokeStyle='rgba(255,255,255,.9)';ctx.lineWidth=1.2;ctx.shadowColor='#fff';ctx.shadowBlur=5;ctx.beginPath();ctx.moveTo(-s*2,0);ctx.lineTo(s*2,0);ctx.moveTo(0,-s*2);ctx.lineTo(0,s*2);ctx.stroke();ctx.restore();}
+      if(!reducedMotion)raf=requestAnimationFrame(draw);
+    }
+    canvas.addEventListener('pointerdown',e=>{dragging=true;lastX=e.clientX;lastY=e.clientY;try{canvas.setPointerCapture(e.pointerId);}catch(_){}canvas.style.cursor='grabbing';});
+    canvas.addEventListener('pointermove',e=>{if(dragging){tiltY+=(e.clientX-lastX)*.008;tiltX=clamp(tiltX+(e.clientY-lastY)*.006,-.7,.7);lastX=e.clientX;lastY=e.clientY;}});
+    const stop=()=>{dragging=false;canvas.style.cursor='grab';};canvas.addEventListener('pointerup',stop);canvas.addEventListener('pointercancel',stop);canvas.addEventListener('lostpointercapture',stop);
+    canvas.addEventListener('keydown',e=>{if(e.key==='ArrowLeft')tiltY-=.15;else if(e.key==='ArrowRight')tiltY+=.15;else if(e.key==='ArrowUp')tiltX=clamp(tiltX-.12,-.7,.7);else if(e.key==='ArrowDown')tiltX=clamp(tiltX+.12,-.7,.7);else return;e.preventDefault();});
+    window.addEventListener('resize',resize);document.addEventListener('visibilitychange',()=>{if(!document.hidden&&!reducedMotion&&!raf)raf=requestAnimationFrame(draw);});
+    resize();draw(16);if(!reducedMotion&&!raf)raf=requestAnimationFrame(draw);
+  }
+
+  // Actual 3D galaxy built with native WebGL; no remote scripts or libraries needed.
+  function startRealGalaxy(){
+    const canvas=$('galaxyCanvas'), scene=$('lavenderScene');
+    if(!canvas||!scene)return;
+    let gl=null;
+    try{gl=canvas.getContext('webgl',{alpha:true,antialias:true,depth:true,premultipliedAlpha:false,preserveDrawingBuffer:false});}catch(_){gl=null;}
+    if(!gl){startGalaxyCanvasFallback(canvas,scene);return;} // Use shaded canvas fallback when WebGL is unavailable.
+    const vertexSource=`
+      attribute vec3 aPosition;
+      attribute vec3 aNormal;
+      attribute vec2 aUV;
+      uniform mat4 uProjection;
+      uniform mat4 uModel;
+      varying vec3 vNormal;
+      varying vec3 vPosition;
+      varying vec2 vUV;
+      void main(){
+        vec4 world=uModel*vec4(aPosition,1.0);
+        vPosition=world.xyz;
+        vNormal=normalize(mat3(uModel)*aNormal);
+        vUV=aUV;
+        gl_Position=uProjection*world;
+      }`;
+    const fragmentSource=`
+      precision mediump float;
+      uniform vec3 uColor;
+      uniform vec3 uLight;
+      uniform float uMode;
+      uniform float uTime;
+      varying vec3 vNormal;
+      varying vec3 vPosition;
+      varying vec2 vUV;
+      void main(){
+        vec3 n=normalize(vNormal);
+        vec3 L=normalize(uLight);
+        vec3 V=normalize(-vPosition);
+        vec3 H=normalize(L+V);
+        float diffuse=max(dot(n,L),0.0);
+        float specular=pow(max(dot(n,H),0.0),uMode<0.5?54.0:38.0);
+        float rim=pow(1.0-max(dot(n,V),0.0),2.4);
+        vec3 base=uColor;
+        if(uMode<0.5){
+          float cloud=sin(vUV.x*24.0+sin(vUV.y*9.0+uTime*.15)*1.8)*sin(vUV.y*17.0-uTime*.09);
+          float soft= smoothstep(-.45,.65,cloud);
+          base=mix(base,vec3(.91,.79,1.0),soft*.30);
+          float stripe=pow(max(0.0,sin((vUV.y+sin(vUV.x*5.0)*.018)*39.0)),22.0);
+          base=mix(base,vec3(1.0,.91,1.0),stripe*.24);
+        }
+        float ambient=.48+diffuse*.7;
+        vec3 color=base*ambient+vec3(1.0,.94,1.0)*specular*.7+vec3(.57,.34,.92)*rim*.40;
+        if(uMode>2.5){color+=vec3(.24,.14,.36)*(.4+diffuse*.4);}
+        gl_FragColor=vec4(color,1.0);
+      }`;
+    function makeShader(type,source){const sh=gl.createShader(type);gl.shaderSource(sh,source);gl.compileShader(sh);if(!gl.getShaderParameter(sh,gl.COMPILE_STATUS)){console.warn('Galaxy shader:',gl.getShaderInfoLog(sh));gl.deleteShader(sh);return null;}return sh;}
+    const vs=makeShader(gl.VERTEX_SHADER,vertexSource), fs=makeShader(gl.FRAGMENT_SHADER,fragmentSource);
+    if(!vs||!fs){$('renderModeLabel').textContent='CSS 3D · FALLBACK';return;}
+    const program=gl.createProgram();gl.attachShader(program,vs);gl.attachShader(program,fs);gl.linkProgram(program);
+    if(!gl.getProgramParameter(program,gl.LINK_STATUS)){console.warn('Galaxy program:',gl.getProgramInfoLog(program));$('renderModeLabel').textContent='CSS 3D · FALLBACK';return;}
+    $('renderModeLabel').textContent='LIVE 3D · WEBGL';
+    gl.useProgram(program);
+    const loc={position:gl.getAttribLocation(program,'aPosition'),normal:gl.getAttribLocation(program,'aNormal'),uv:gl.getAttribLocation(program,'aUV'),projection:gl.getUniformLocation(program,'uProjection'),model:gl.getUniformLocation(program,'uModel'),color:gl.getUniformLocation(program,'uColor'),light:gl.getUniformLocation(program,'uLight'),mode:gl.getUniformLocation(program,'uMode'),time:gl.getUniformLocation(program,'uTime')};
+    gl.enable(gl.DEPTH_TEST);gl.depthFunc(gl.LEQUAL);gl.disable(gl.CULL_FACE);gl.clearColor(0,0,0,0);
+    function mesh(pos,norm,uv,ind){const b={count:ind.length};b.p=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,b.p);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array(pos),gl.STATIC_DRAW);b.n=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,b.n);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array(norm),gl.STATIC_DRAW);b.uv=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,b.uv);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array(uv),gl.STATIC_DRAW);b.i=gl.createBuffer();gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER,b.i);gl.bufferData(gl.ELEMENT_ARRAY_BUFFER,new Uint16Array(ind),gl.STATIC_DRAW);return b;}
+    function sphereMesh(latBands=48,lonBands=64){const p=[],n=[],uv=[],ind=[];for(let lat=0;lat<=latBands;lat++){const th=lat*Math.PI/latBands;for(let lon=0;lon<=lonBands;lon++){const ph=lon*2*Math.PI/lonBands;const x=Math.sin(th)*Math.cos(ph),y=Math.cos(th),z=Math.sin(th)*Math.sin(ph);p.push(x,y,z);n.push(x,y,z);uv.push(lon/lonBands,1-lat/latBands);}}for(let lat=0;lat<latBands;lat++)for(let lon=0;lon<lonBands;lon++){const a=lat*(lonBands+1)+lon,b=a+lonBands+1;ind.push(a,b,a+1,b,b+1,a+1);}return mesh(p,n,uv,ind);}
+    function torusMesh(R=1.48,r=.045,major=112,minor=14){const p=[],n=[],uv=[],ind=[];for(let i=0;i<=major;i++){const u=i*2*Math.PI/major,cu=Math.cos(u),su=Math.sin(u);for(let j=0;j<=minor;j++){const v=j*2*Math.PI/minor,cv=Math.cos(v),sv=Math.sin(v);p.push((R+r*cv)*cu,(R+r*cv)*su,r*sv);n.push(cv*cu,cv*su,sv);uv.push(i/major,j/minor);}}for(let i=0;i<major;i++)for(let j=0;j<minor;j++){const a=i*(minor+1)+j,b=a+minor+1;ind.push(a,b,a+1,b,b+1,a+1);}return mesh(p,n,uv,ind);}
+    function octaMesh(){const P=[[0,1,0],[1,0,0],[0,0,1],[-1,0,0],[0,0,-1],[0,-1,0]],faces=[[0,1,2],[0,2,3],[0,3,4],[0,4,1],[5,2,1],[5,3,2],[5,4,3],[5,1,4]],p=[],n=[],uv=[],ind=[];for(const f of faces){const a=P[f[0]],b=P[f[1]],c=P[f[2]],u=[b[0]-a[0],b[1]-a[1],b[2]-a[2]],v=[c[0]-a[0],c[1]-a[1],c[2]-a[2]],nn=[u[1]*v[2]-u[2]*v[1],u[2]*v[0]-u[0]*v[2],u[0]*v[1]-u[1]*v[0]],l=Math.hypot(...nn)||1;for(const q of [a,b,c]){p.push(...q);n.push(nn[0]/l,nn[1]/l,nn[2]/l);uv.push(q[0]*.5+.5,q[1]*.5+.5);ind.push(ind.length);}}return mesh(p,n,uv,ind);}
+    const globe=sphereMesh(), moon=sphereMesh(24,32), orbit=torusMesh(1.43,.046), orbit2=torusMesh(1.68,.014,112,8), crystal=octaMesh();
+    const I=()=>new Float32Array([1,0,0,0,0,1,0,0,0,0,1,0,0,0,0,1]);
+    function mul(a,b){const o=new Float32Array(16);for(let c=0;c<4;c++)for(let r=0;r<4;r++)o[c*4+r]=a[r]*b[c*4]+a[4+r]*b[c*4+1]+a[8+r]*b[c*4+2]+a[12+r]*b[c*4+3];return o;}
+    function tr(x,y,z){const m=I();m[12]=x;m[13]=y;m[14]=z;return m;}
+    function sc(x,y,z){const m=I();m[0]=x;m[5]=y;m[10]=z;return m;}
+    function rx(a){const m=I(),c=Math.cos(a),s=Math.sin(a);m[5]=c;m[6]=s;m[9]=-s;m[10]=c;return m;}
+    function ry(a){const m=I(),c=Math.cos(a),s=Math.sin(a);m[0]=c;m[2]=-s;m[8]=s;m[10]=c;return m;}
+    function rz(a){const m=I(),c=Math.cos(a),s=Math.sin(a);m[0]=c;m[1]=s;m[4]=-s;m[5]=c;return m;}
+    function model(x,y,z,ax,ay,az,sx,sy,sz){return mul(tr(x,y,z),mul(ry(ay),mul(rx(ax),mul(rz(az),sc(sx,sy,sz)))));}
+    function projection(aspect){const f=1/Math.tan(43*Math.PI/360),near=.1,far=80,m=new Float32Array(16);m[0]=f/aspect;m[5]=f;m[10]=(far+near)/(near-far);m[11]=-1;m[14]=(2*far*near)/(near-far);return m;}
+    function bind(m){gl.bindBuffer(gl.ARRAY_BUFFER,m.p);gl.enableVertexAttribArray(loc.position);gl.vertexAttribPointer(loc.position,3,gl.FLOAT,false,0,0);gl.bindBuffer(gl.ARRAY_BUFFER,m.n);gl.enableVertexAttribArray(loc.normal);gl.vertexAttribPointer(loc.normal,3,gl.FLOAT,false,0,0);gl.bindBuffer(gl.ARRAY_BUFFER,m.uv);gl.enableVertexAttribArray(loc.uv);gl.vertexAttribPointer(loc.uv,2,gl.FLOAT,false,0,0);gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER,m.i);}
+    function draw(m,M,color,mode,time){bind(m);gl.uniformMatrix4fv(loc.model,false,M);gl.uniform3fv(loc.color,new Float32Array(color));gl.uniform1f(loc.mode,mode);gl.uniform1f(loc.time,time);gl.drawElements(gl.TRIANGLES,m.count,gl.UNSIGNED_SHORT,0);}
+    let width=0,height=0,turbo=false,rotX=-.06,rotY=0,dragging=false,lastX=0,lastY=0,pointerX=0,pointerY=0,raf=0,lastFrame=0;
+    setGalaxyTurbo=(value)=>{turbo=!!value;};
+    function resize(){const rect=canvas.getBoundingClientRect(),dpr=Math.min(window.devicePixelRatio||1,2);const w=Math.max(1,Math.round(rect.width*dpr)),h=Math.max(1,Math.round(rect.height*dpr));if(w!==width||h!==height){width=w;height=h;canvas.width=w;canvas.height=h;gl.viewport(0,0,w,h);}}
+    function render(ms){raf=0;if(document.hidden){return;}resize();const time=ms*.001;const elapsed=Math.min(.05,Math.max(0,(ms-lastFrame)*.001));lastFrame=ms;const speed=turbo?2.25:1.0;if(!dragging){rotY+=(.18*speed)*elapsed;rotX+=(pointerY-rotX)*Math.min(1,elapsed*1.8);}
+      gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);gl.useProgram(program);gl.uniformMatrix4fv(loc.projection,false,projection(width/Math.max(1,height)));gl.uniform3f(loc.light,-.45,.78,.88);
+      const z=-4.0;
+      // Two thick, differently inclined orbit paths, physically depth-tested against the globe.
+      draw(orbit,model(0,.02,z,1.12+rotX*.22,rotY*.22,.34+rotY*.12),[.92,.85,1.0],1,time);
+      draw(orbit2,model(0,.02,z,1.38,-rotY*.24,-.48-rotY*.1),[.81,.68,1.0],1,time);
+      draw(globe,model(0,.02,z,rotX,rotY,Math.sin(time*.23)*.08,1.03,1.03,1.03),[.66,.53,.91],0,time);
+      // Pearly satellites orbit in 3D, with actual sphere shading and perspective.
+      for(let i=0;i<4;i++){const a=time*(.55+i*.07)+i*1.55;const radius=1.63+(i%2)*.22;const sx=Math.cos(a)*radius, sy=Math.sin(a)*.68, sz=z+Math.sin(a)*.72;const size=.105+(i%2)*.035;draw(moon,model(sx,sy,sz,a*.5,a,0,size,size,size),i%2?[.98,.75,.91]:[.73,.88,1.0],2,time);}
+      // Tiny faceted crystals feel like floating 3D gems around the lavender planet.
+      for(let i=0;i<3;i++){const a=time*(.32+i*.08)+i*2.2;const sx=Math.cos(a)*2.0,sy=Math.sin(a*1.1)*.88,sz=z+Math.cos(a)*.45;const size=.105+(i*.012);draw(crystal,model(sx,sy,sz,time*.4+a,time*.48,-time*.3,size,size*1.26,size),i===1?[1.0,.83,.96]:[.89,.80,1.0],3,time);}
+      // Faint stars are faceted 3D crystals, not flat emoji overlays.
+      for(let i=0;i<9;i++){const a=i*2.399;const x=Math.cos(a)*(2.0+(i%3)*.36),y=Math.sin(a*1.7)*.95,zStar=-4.8-(i%3)*.65;const size=.024+(i%3)*.012;draw(crystal,model(x,y,zStar,time*.12+i,time*.1,-time*.18,size,size,size),[.97,.92,1.0],3,time);}
+      if(!reducedMotion)raf=requestAnimationFrame(render);
+    }
+    scene.classList.add('webgl-ready');
+    canvas.addEventListener('pointerdown',e=>{dragging=true;lastX=e.clientX;lastY=e.clientY;try{canvas.setPointerCapture(e.pointerId);}catch(_){}canvas.style.cursor='grabbing';});
+    canvas.addEventListener('pointermove',e=>{const r=canvas.getBoundingClientRect();pointerX=((e.clientX-r.left)/r.width-.5)*2;pointerY=((e.clientY-r.top)/r.height-.5)*.36;if(dragging){rotY+=(e.clientX-lastX)*.009;rotX=Math.max(-.7,Math.min(.7,rotX+(e.clientY-lastY)*.007));lastX=e.clientX;lastY=e.clientY;}});
+    const stopDrag=()=>{dragging=false;canvas.style.cursor='grab';};canvas.addEventListener('pointerup',stopDrag);canvas.addEventListener('pointercancel',stopDrag);canvas.addEventListener('lostpointercapture',stopDrag);
+    canvas.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'){rotY-=.16;e.preventDefault();}else if(e.key==='ArrowRight'){rotY+=.16;e.preventDefault();}else if(e.key==='ArrowUp'){rotX=Math.max(-.7,rotX-.12);e.preventDefault();}else if(e.key==='ArrowDown'){rotX=Math.min(.7,rotX+.12);e.preventDefault();}});
+    window.addEventListener('resize',resize);document.addEventListener('visibilitychange',()=>{if(!document.hidden&&!reducedMotion&&!raf)raf=requestAnimationFrame(render);});
+    resize();render(0);
+    if(!reducedMotion&&!raf)raf=requestAnimationFrame(render);
+  }
+  startRealGalaxy();
+  // Small six-sided glass cubes add visible depth throughout the arcade cards.
+  document.querySelectorAll('.play-card').forEach((card,index)=>{
+    const cube=document.createElement('span');cube.className='card-cube';cube.setAttribute('aria-hidden','true');cube.style.animationDelay=(-index*.73)+'s';
+    cube.innerHTML='<i class="cube-face cube-front">✦</i><i class="cube-face cube-back">✧</i><i class="cube-face cube-right">✦</i><i class="cube-face cube-left">✧</i><i class="cube-face cube-top">✦</i><i class="cube-face cube-bottom">✧</i>';
+    card.appendChild(cube);
+  });
+  $('turboMode').addEventListener('click',()=>{const active=document.body.classList.toggle('turbo-mode');$('turboMode').setAttribute('aria-pressed',String(active));$('turboMode').textContent=active?'TURBO IS UNLEASHED 💫':'TURBO DIMENSION 🪐';setGalaxyTurbo(active);burstCenter($('turboMode'),active?['🪐','💎','✨','🦄','💜']:['🌙','🫧','⭐']);if(active){showToast('DIMENSION OVERDRIVE: ON 🪐');addChaos(7);}else{showToast('cozy galaxy mode restored 🪻');}});
+
+  // Subtle, low-cost 3D parallax on desktop pointers. Touch users keep a calm static layout.
+  const canTilt = window.matchMedia('(hover: hover) and (pointer: fine)').matches && !reducedMotion;
+  if (canTilt) {
+    document.querySelectorAll('.play-card').forEach((card) => {
+      card.addEventListener('pointermove', (event) => {
+        const rect = card.getBoundingClientRect();
+        const nx = (event.clientX - rect.left) / rect.width;
+        const ny = (event.clientY - rect.top) / rect.height;
+        card.style.setProperty('--tilt-x', ((.5 - ny) * 4.2).toFixed(2) + 'deg');
+        card.style.setProperty('--tilt-y', ((nx - .5) * 5.2).toFixed(2) + 'deg');
+        card.style.setProperty('--glow-x', (nx * 100).toFixed(1) + '%');
+        card.style.setProperty('--glow-y', (ny * 100).toFixed(1) + '%');
+      });
+      card.addEventListener('pointerleave', () => {
+        card.style.setProperty('--tilt-x', '0deg');
+        card.style.setProperty('--tilt-y', '0deg');
+        card.style.setProperty('--glow-x', '50%');
+        card.style.setProperty('--glow-y', '0%');
+      });
+    });
+    const scene = $('lavenderScene');
+    if (scene) {
+      scene.addEventListener('pointermove', (event) => {
+        const rect = scene.getBoundingClientRect();
+        const dx = (event.clientX - rect.left) / rect.width - .5;
+        const dy = (event.clientY - rect.top) / rect.height - .5;
+        scene.style.setProperty('--scene-shift-x', (dx * 9).toFixed(1) + 'px');
+        scene.style.setProperty('--scene-shift-y', (dy * 6).toFixed(1) + 'px');
+      });
+      scene.addEventListener('pointerleave', () => {
+        scene.style.setProperty('--scene-shift-x', '0px');
+        scene.style.setProperty('--scene-shift-y', '0px');
+      });
+    }
+  }
+})();
+</script>
+</body>
+</html>
